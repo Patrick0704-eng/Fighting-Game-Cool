@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfe4480dgbxh8"]
 
 [ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
-[ext_resource type="PackedScene" uid="uid://dtopfj804rdt0" path="res://scenes/characters/monk.tscn" id="2_c0y75"]
+[ext_resource type="PackedScene" uid="uid://dtopfj804rdt0" path="res://scenes/characters/hon.tscn" id="2_c0y75"]
 [ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75iu"]

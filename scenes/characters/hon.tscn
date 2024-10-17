@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dtopfj804rdt0"]
 
-[ext_resource type="Script" path="res://scripts/characters/monk.gd" id="1_ipo3d"]
+[ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
 [ext_resource type="Texture2D" uid="uid://bu3qio0bcvwlf" path="res://assets/characters/monk/outlined/crouch_idle.png" id="2_hxsrq"]
 [ext_resource type="Texture2D" uid="uid://bs3vgsecfeyve" path="res://assets/characters/monk/outlined/idle.png" id="3_j77ci"]
 
