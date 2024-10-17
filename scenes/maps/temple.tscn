@@ -15,9 +15,6 @@ offset_right = 648.0
 offset_bottom = 360.0
 texture = ExtResource("2_t4y05")
 
-[node name="monk" parent="." instance=ExtResource("2_c0y75")]
-position = Vector2(207, 205)
-
 [node name="stage_collision" type="StaticBody2D" parent="."]
 
 [node name="floor" type="CollisionShape2D" parent="stage_collision"]
@@ -27,3 +24,6 @@ shape = SubResource("RectangleShape2D_g75iu")
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(324, 180)
 zoom = Vector2(5, 5)
+
+[node name="hon" parent="." instance=ExtResource("2_c0y75")]
+position = Vector2(219, 205)

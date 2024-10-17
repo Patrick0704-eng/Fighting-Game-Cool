@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxk546dpp0gk"
-path="res://.godot/imported/ultimate_end.png-eb078730f8de3ade9710fef7de7ff952.ctex"
+uid="uid://dt4oqavpvqay"
+path="res://.godot/imported/reference.png-9ddfe8b16279b73da492f8b9f8591650.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monk/outlined/ultimate_end.png"
-dest_files=["res://.godot/imported/ultimate_end.png-eb078730f8de3ade9710fef7de7ff952.ctex"]
+source_file="res://assets/characters/hon/outlined/reference.png"
+dest_files=["res://.godot/imported/reference.png-9ddfe8b16279b73da492f8b9f8591650.ctex"]
 
 [params]
 

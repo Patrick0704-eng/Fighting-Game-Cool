@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://geonumy331b2"
-path="res://.godot/imported/crouch_reference.png-2393499700daef5a18dc07ed04c6a424.ctex"
+uid="uid://bjl1e7hrdj3x5"
+path="res://.godot/imported/ultimate_end.png-6898409110a1b94c6463458ce62ce012.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monk/outlined/crouch_reference.png"
-dest_files=["res://.godot/imported/crouch_reference.png-2393499700daef5a18dc07ed04c6a424.ctex"]
+source_file="res://assets/characters/hon/normal/ultimate_end.png"
+dest_files=["res://.godot/imported/ultimate_end.png-6898409110a1b94c6463458ce62ce012.ctex"]
 
 [params]
 

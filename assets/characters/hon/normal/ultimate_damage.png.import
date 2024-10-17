@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpdkqddrlrtyo"
-path="res://.godot/imported/ultimate_damage.png-3b5c70bade402b101cf5acd884632d52.ctex"
+uid="uid://dt0pf1ue1o4mh"
+path="res://.godot/imported/ultimate_damage.png-a9a73827ae9725f90056982ca6091c83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monk/outlined/ultimate_damage.png"
-dest_files=["res://.godot/imported/ultimate_damage.png-3b5c70bade402b101cf5acd884632d52.ctex"]
+source_file="res://assets/characters/hon/normal/ultimate_damage.png"
+dest_files=["res://.godot/imported/ultimate_damage.png-a9a73827ae9725f90056982ca6091c83.ctex"]
 
 [params]
 

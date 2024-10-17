@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs3vgsecfeyve"
-path="res://.godot/imported/idle.png-00aed7210e81586adc06453dfa1ef1d2.ctex"
+uid="uid://geonumy331b2"
+path="res://.godot/imported/crouch_reference.png-795ca614b6ed23849488501bc1729f57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monk/outlined/idle.png"
-dest_files=["res://.godot/imported/idle.png-00aed7210e81586adc06453dfa1ef1d2.ctex"]
+source_file="res://assets/characters/hon/outlined/crouch_reference.png"
+dest_files=["res://.godot/imported/crouch_reference.png-795ca614b6ed23849488501bc1729f57.ctex"]
 
 [params]
 

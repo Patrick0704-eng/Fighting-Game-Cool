@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlhfnft8qll4c"
-path="res://.godot/imported/ultimate_start.png-c460c3b848d9fb1b4ca6904810f62cb7.ctex"
+uid="uid://cwjv7c2areib"
+path="res://.godot/imported/ultimate_start.png-b613a012366bd4f446bdf9ae6ee59861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/monk/outlined/ultimate_start.png"
-dest_files=["res://.godot/imported/ultimate_start.png-c460c3b848d9fb1b4ca6904810f62cb7.ctex"]
+source_file="res://assets/characters/hon/normal/ultimate_start.png"
+dest_files=["res://.godot/imported/ultimate_start.png-b613a012366bd4f446bdf9ae6ee59861.ctex"]
 
 [params]
 
