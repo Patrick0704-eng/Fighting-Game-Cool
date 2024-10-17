@@ -6,7 +6,7 @@ var crouching_speed = 75.0
 var speed = standing_speed
 var jump_velocity = -350.0
 
-var gravity = 980.0
+var gravity = 1000.0
 
 var player = 1
 
