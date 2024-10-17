@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfe4480dgbxh8"]
+
+[ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
+[ext_resource type="PackedScene" uid="uid://dtopfj804rdt0" path="res://scenes/characters/monk.tscn" id="2_c0y75"]
+[ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g75iu"]
+size = Vector2(648, 46)
+
+[node name="temple" type="Node2D"]
+script = ExtResource("1_7fuft")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 648.0
+offset_bottom = 360.0
+texture = ExtResource("2_t4y05")
+
+[node name="monk" parent="." instance=ExtResource("2_c0y75")]
+position = Vector2(207, 205)
+
+[node name="stage_collision" type="StaticBody2D" parent="."]
+
+[node name="floor" type="CollisionShape2D" parent="stage_collision"]
+position = Vector2(324, 261)
+shape = SubResource("RectangleShape2D_g75iu")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(324, 180)
+zoom = Vector2(5, 5)
