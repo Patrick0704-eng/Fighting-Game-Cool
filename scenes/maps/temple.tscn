@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
 [ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
-[ext_resource type="PackedScene" uid="uid://ch0e118a82pb1" path="res://scenes/characters/hon.tscn" id="3_twbyy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g75iu"]
-size = Vector2(648, 46)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ekoap"]
+distance = -243.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ts45b"]
 
 [node name="temple" type="Node2D"]
 script = ExtResource("1_7fuft")
@@ -17,13 +18,17 @@ texture = ExtResource("2_t4y05")
 
 [node name="stage_collision" type="StaticBody2D" parent="."]
 
-[node name="floor" type="CollisionShape2D" parent="stage_collision"]
-position = Vector2(324, 261)
-shape = SubResource("RectangleShape2D_g75iu")
+[node name="south" type="CollisionShape2D" parent="stage_collision"]
+position = Vector2(324, -5)
+shape = SubResource("WorldBoundaryShape2D_ekoap")
+
+[node name="west" type="CollisionShape2D" parent="stage_collision"]
+position = Vector2(-10, 119)
+shape = SubResource("WorldBoundaryShape2D_ts45b")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(324, 180)
 zoom = Vector2(5, 5)
 
-[node name="hon" parent="." instance=ExtResource("3_twbyy")]
-position = Vector2(216, 200)
+[node name="players" type="Node2D" parent="."]
+position = Vector2(324, 180)
