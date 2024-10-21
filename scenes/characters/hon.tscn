@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=15 format=3 uid="uid://ch0e118a82pb1"]
-=======
-[gd_scene load_steps=43 format=3 uid="uid://dtopfj804rdt0"]
->>>>>>> Stashed changes
+[gd_scene load_steps=43 format=3 uid="uid://dp437v6nkr7ce"]
 
 [ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
 [ext_resource type="Texture2D" uid="uid://sb0dieqd0d7w" path="res://assets/characters/hon/normal/crouch_idle.png" id="2_cnn5w"]
