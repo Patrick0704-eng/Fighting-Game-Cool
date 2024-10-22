@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
 [ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
-[ext_resource type="PackedScene" uid="uid://ch0e118a82pb1" path="res://scenes/characters/hon.tscn" id="3_twbyy"]
+[ext_resource type="PackedScene" uid="uid://dp437v6nkr7ce" path="res://scenes/characters/hon.tscn" id="3_twbyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75iu"]
 size = Vector2(648, 46)
