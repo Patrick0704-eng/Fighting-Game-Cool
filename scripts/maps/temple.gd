@@ -33,7 +33,7 @@ func _ready():
 
 func _process(delta):
 	#Set the camera's x position to the average x position of player 1 and player 2
-	camera.position.x = player1.position.x /2 + player2.position.x /2
+	camera.position.x = player1.position.x + player2.position.x + 330
 	
 	#Make the camera zoom out more the further apart the players are
 	var cza = 10.0 - abs(player1.position.x - player2.position.x) / 75.5
@@ -44,8 +44,8 @@ func _process(delta):
 		cza = 3
 	
 	#Prevent the camera from moving to far to the right or left
-	if camera.position.x >= 212:
-		camera.position.x = 212
-	elif camera.position.x <= 128:
-		camera.position.x = 128
+	if camera.position.x >= 452:
+		camera.position.x = 452
+	elif camera.position.x <= 196:
+		camera.position.x = 196
 	camera.zoom = Vector2(cza, cza)

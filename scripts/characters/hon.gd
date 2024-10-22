@@ -55,6 +55,9 @@ func _ready():
 		low_kick = "low_kick2"
 
 func _physics_process(delta):
+	#Flip the player if they are player 2
+	if player == 2:
+		animation_frames.flip_h = true
 	#Check if player is trying to low blow and if they can, then executes the move
 	if is_crouching and Input.is_action_just_pressed(low_punch) and is_on_floor() and !is_attacking:
 		is_attacking = true
