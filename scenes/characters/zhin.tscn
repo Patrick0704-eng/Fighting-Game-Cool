@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyobmmal60eo2"]
+
+[sub_resource type="Animation" id="Animation_rk142"]
+resource_name = "crouch"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nf0yl"]
+_data = {
+"crouch": SubResource("Animation_rk142")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5pidu"]
+
+[node name="zhin" type="CharacterBody2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nf0yl")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5pidu")
