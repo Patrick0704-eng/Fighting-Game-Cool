@@ -1,4 +1,4 @@
-[gd_scene load_steps=256 format=3 uid="uid://dyobmmal60eo2"]
+[gd_scene load_steps=256 format=3 uid="uid://r6xv64obirhh"]
 
 [ext_resource type="Texture2D" uid="uid://d2jlh1hi68jrk" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior/Fire_Warrior-Sheet.png" id="1_5xfa4"]
 [ext_resource type="Script" path="res://scripts/characters/zhin.gd" id="1_q55e1"]
