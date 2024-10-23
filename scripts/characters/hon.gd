@@ -31,6 +31,9 @@ var is_attacking = false
 var is_walking = false
 var is_jumping = false
 
+#Define a variable to see whether or not the player is flipped
+var is_flipped = false
+
 #Set the idle animation to standing by default
 var animation_idle = "standing_idle"
 
@@ -58,24 +61,37 @@ func _physics_process(delta):
 	#Flip the player if they are player 2
 	if player == 2:
 		animation_frames.flip_h = true
+		is_flipped = true
 	#Check if player is trying to low blow and if they can, then executes the move
 	if is_crouching and Input.is_action_just_pressed(low_punch) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("crouching_low_punch")
 		await get_tree().create_timer(0.9).timeout
 		is_attacking = false
-	#Checks if the standing walk animation should be played, then plays it
+	#Checks if the standing walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and !is_crouching and is_on_floor() and !is_attacking:
-		if velocity.x > 0:
-			animation_player.play("standing_walk")
-		if velocity.x < 0:
-			animation_player.play_backwards("standing_walk")
-	#Checks if the crouching walk animation should be played, then plays it
+		if !is_flipped:
+			if velocity.x > 0:
+				animation_player.play("standing_walk")
+			elif velocity.x < 0:
+				animation_player.play_backwards("standing_walk")
+		else:
+			if velocity.x < 0:
+				animation_player.play("standing_walk")
+			elif velocity.x > 0:
+				animation_player.play_backwards("standing_walk")
+	#Checks if the crouching walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and is_crouching and is_on_floor() and !is_attacking:
-		if velocity.x > 0:
-			animation_player.play("crouching_walk")
-		if velocity.x < 0:
-			animation_player.play_backwards("crouching_walk")
+		if !is_flipped:
+			if velocity.x > 0:
+				animation_player.play("crouching_walk")
+			if velocity.x < 0:
+				animation_player.play_backwards("crouching_walk")
+		else:
+			if velocity.x < 0:
+				animation_player.play("crouching_walk")
+			if velocity.x > 0:
+				animation_player.play_backwards("crouching_walk")
 	#Checks if the idle animation should be played, then plays it
 	elif is_on_floor() and !is_attacking:
 		animation_player.play(animation_idle)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://41kfs8xj4fu2"]
+[gd_scene load_steps=3 format=3 uid="uid://41kfs8xj4fu2"]
 
 [ext_resource type="Script" path="res://scripts/gui/main_menu.gd" id="1_2q5qk"]
+[ext_resource type="Texture2D" uid="uid://caajwwc2ooqid" path="res://assets/gui/main_menu/buttons/play.png" id="2_jwfth"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -11,10 +12,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2q5qk")
 
-[node name="Button" type="Button" parent="."]
+[node name="play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "play"
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_jwfth")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
