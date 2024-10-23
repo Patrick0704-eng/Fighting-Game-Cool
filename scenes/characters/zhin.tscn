@@ -1,31 +1,371 @@
-[gd_scene load_steps=233 format=3 uid="uid://dyobmmal60eo2"]
+[gd_scene load_steps=238 format=3 uid="uid://dyobmmal60eo2"]
 
 [ext_resource type="Texture2D" uid="uid://d2jlh1hi68jrk" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior/Fire_Warrior-Sheet.png" id="1_5xfa4"]
 [ext_resource type="Texture2D" uid="uid://b2h14qs0x26b7" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior(FireSword)/Fire_WarriorFireSword-Sheet.png" id="2_goi2l"]
 
 [sub_resource type="Animation" id="Animation_rk142"]
 resource_name = "crouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"crouch"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 3, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attacks:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hit_box:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 2.1), Vector2(1, 1.56)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hit_box:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-14, 1), Vector2(-14, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_58j68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"crouch"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attacks:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hit_box:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 2.1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hit_box:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-14, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("fire_sword:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"crouch_fire"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("fire_sword:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_nhu3e"]
+resource_name = "crouch_fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fire_sword:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"crouch_fire"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fire_sword:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hit_box:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-14, 3), Vector2(-14, 8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hit_box:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 2.1), Vector2(1, 1.56)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("attacks:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_r6nak"]
+resource_name = "block"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"block"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hit_box:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 2.3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hit_box:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, -1.19209e-06)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("attacks:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vbvps"]
+resource_name = "block_fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attacks:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fire_sword:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"block_fire"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fire_sword:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hit_box:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, -1.19209e-06)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hit_box:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 2.2)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nf0yl"]
 _data = {
-"crouch": SubResource("Animation_rk142")
+"RESET": SubResource("Animation_58j68"),
+"block": SubResource("Animation_r6nak"),
+"block_fire": SubResource("Animation_vbvps"),
+"crouch": SubResource("Animation_rk142"),
+"crouch_fire": SubResource("Animation_nhu3e")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5bfv6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wpkl"]
 atlas = ExtResource("1_5xfa4")
-region = Rect2(0, 1100, 144, 100)
+region = Rect2(0, 1120, 144, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7e2j5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wu1k"]
 atlas = ExtResource("1_5xfa4")
-region = Rect2(144, 1100, 144, 100)
+region = Rect2(144, 1120, 144, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kirlb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_15hjl"]
 atlas = ExtResource("1_5xfa4")
-region = Rect2(288, 1100, 144, 100)
+region = Rect2(288, 1120, 144, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eagic"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ahp7"]
 atlas = ExtResource("1_5xfa4")
-region = Rect2(432, 1100, 144, 100)
+region = Rect2(432, 1120, 144, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_to4kc"]
 atlas = ExtResource("1_5xfa4")
@@ -463,16 +803,16 @@ region = Rect2(1008, 160, 144, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5bfv6")
+"texture": SubResource("AtlasTexture_7wpkl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7e2j5")
+"texture": SubResource("AtlasTexture_4wu1k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kirlb")
+"texture": SubResource("AtlasTexture_15hjl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eagic")
+"texture": SubResource("AtlasTexture_2ahp7")
 }],
 "loop": false,
 "name": &"block",
@@ -948,6 +1288,26 @@ region = Rect2(2016, 1520, 144, 80)
 atlas = ExtResource("2_goi2l")
 region = Rect2(2160, 1520, 144, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf7c2"]
+atlas = ExtResource("2_goi2l")
+region = Rect2(0, 1280, 144, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5m53"]
+atlas = ExtResource("2_goi2l")
+region = Rect2(144, 1280, 144, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5l1u"]
+atlas = ExtResource("2_goi2l")
+region = Rect2(288, 1280, 144, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgx76"]
+atlas = ExtResource("2_goi2l")
+region = Rect2(432, 1280, 144, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gkda"]
+atlas = ExtResource("2_goi2l")
+region = Rect2(576, 1280, 144, 80)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_c85kg"]
 atlas = ExtResource("2_goi2l")
 region = Rect2(0, 1200, 144, 80)
@@ -975,26 +1335,6 @@ region = Rect2(720, 1200, 144, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8c254"]
 atlas = ExtResource("2_goi2l")
 region = Rect2(864, 1200, 144, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lf7c2"]
-atlas = ExtResource("2_goi2l")
-region = Rect2(0, 1280, 144, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5m53"]
-atlas = ExtResource("2_goi2l")
-region = Rect2(144, 1280, 144, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5l1u"]
-atlas = ExtResource("2_goi2l")
-region = Rect2(288, 1280, 144, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cgx76"]
-atlas = ExtResource("2_goi2l")
-region = Rect2(432, 1280, 144, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gkda"]
-atlas = ExtResource("2_goi2l")
-region = Rect2(576, 1280, 144, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxcqa"]
 atlas = ExtResource("2_goi2l")
@@ -1340,7 +1680,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_hlpa6")
 }],
 "loop": false,
-"name": &"block",
+"name": &"block_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1393,7 +1733,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_jej3q")
 }],
 "loop": true,
-"name": &"breathe_fire",
+"name": &"breathe_fire_fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf7c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5m53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5l1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgx76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gkda")
+}],
+"loop": true,
+"name": &"crouch_attack_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1419,27 +1779,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8c254")
 }],
 "loop": true,
-"name": &"crouch",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lf7c2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x5m53")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u5l1u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cgx76")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8gkda")
-}],
-"loop": true,
-"name": &"crouch_attack",
+"name": &"crouch_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1465,7 +1805,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_m3fwm")
 }],
 "loop": true,
-"name": &"dash",
+"name": &"dash_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1506,7 +1846,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tcwhh")
 }],
 "loop": true,
-"name": &"death",
+"name": &"death_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1523,7 +1863,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_n483y")
 }],
 "loop": true,
-"name": &"get_hit",
+"name": &"get_hit_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1552,7 +1892,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_07ewk")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1578,7 +1918,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_vyptc")
 }],
 "loop": true,
-"name": &"roll",
+"name": &"roll_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1610,7 +1950,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qi1j1")
 }],
 "loop": true,
-"name": &"spell",
+"name": &"spell_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1642,7 +1982,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6gyst")
 }],
 "loop": true,
-"name": &"stab",
+"name": &"stab_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1683,7 +2023,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_8nt6a")
 }],
 "loop": false,
-"name": &"unlight_sword",
+"name": &"unlight_sword_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1706,7 +2046,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_swbln")
 }],
 "loop": true,
-"name": &"up_slash",
+"name": &"up_slash_fire",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1735,9 +2075,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_s3ya6")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"walk_fire",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cn3ud"]
 
 [node name="zhin" type="CharacterBody2D"]
 
@@ -1749,13 +2091,18 @@ libraries = {
 [node name="sword" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_5pidu")
-animation = &"up_slash"
-frame = 3
-frame_progress = 0.141145
+animation = &"crouch"
 
 [node name="fire_sword" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_1gf4v")
-animation = &"unlight_sword"
-frame = 11
-frame_progress = 0.528197
+animation = &"crouch_fire"
+
+[node name="hit_box" type="CollisionShape2D" parent="."]
+position = Vector2(-14, 1)
+scale = Vector2(1, 2.1)
+shape = SubResource("RectangleShape2D_cn3ud")
+
+[node name="attacks" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attacks"]
