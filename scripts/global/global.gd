@@ -8,6 +8,9 @@ var player2_health = 100
 var player1_character = 0
 var player2_character = 0
 
+var player_1_character
+var player_2_character
+
 func _ready():
 	pass
 
