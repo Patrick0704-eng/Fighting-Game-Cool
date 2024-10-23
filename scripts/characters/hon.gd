@@ -126,3 +126,9 @@ func _physics_process(delta):
 	
 	#Moves and slides
 	move_and_slide()
+
+func _hit(damage, time):
+	if player == 1:
+		global.player_1_health -= damage
+	elif player == 2:
+		global.player_1_health -= damage
