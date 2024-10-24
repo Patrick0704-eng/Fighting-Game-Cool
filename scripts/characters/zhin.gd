@@ -32,7 +32,7 @@ var is_walking = false
 var is_jumping = false
 
 #Set the idle animation to standing by default
-var animation_idle = "standing_idle"
+var animation_idle = "stand_idle"
 
 #Reference hon's hitbox
 @onready var hit_box = $hit_box
@@ -92,7 +92,7 @@ func _physics_process(delta):
 	else:
 		is_crouching = false
 		speed = standing_speed
-		animation_idle = "standing_idle"
+		animation_idle = "stand_idle"
 	
 	#Checks if player wants to jump and can jump, then jumps
 	if Input.is_action_pressed(up) and is_on_floor() and !is_crouching and !is_attacking:
