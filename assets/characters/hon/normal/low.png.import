@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db7yxy64dgshj"
-path="res://.godot/imported/crouch_low_punch.png-39e2f0dac201a0a580261541e25c345d.ctex"
+uid="uid://dx4mcjjquqbl7"
+path="res://.godot/imported/low.png-fdf5a93c2b9ce8142db28e2aa2471a9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/hon/normal/crouch_low_punch.png"
-dest_files=["res://.godot/imported/crouch_low_punch.png-39e2f0dac201a0a580261541e25c345d.ctex"]
+source_file="res://assets/characters/hon/normal/low.png"
+dest_files=["res://.godot/imported/low.png-fdf5a93c2b9ce8142db28e2aa2471a9c.ctex"]
 
 [params]
 
