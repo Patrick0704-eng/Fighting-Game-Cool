@@ -18,23 +18,23 @@ func _ready():
 	global.player_1_health = 100
 	global.player_2_health = 100
 	#Check player1's selected character and instantiate them
-	if global.player_1_character == 0:
+	if global.player_1_character == 1:
 		player1 = scene_hon.instantiate()
 		player1.position = Vector2(-50, 0)
 		player1.player = 1
 		players.add_child(player1)
-	if global.player_1_character == 1:
+	if global.player_1_character == 2:
 		player1 = scene_zhin.instantiate()
 		player1.position = Vector2(-50, 0)
 		player1.player = 1
 		players.add_child(player1)
 	#Check player2's selected character and instantiate them
-	if global.player_2_character == 0:
+	if global.player_2_character == 1:
 		player2 = scene_hon.instantiate()
 		player2.position = Vector2(50, 0)
 		player2.player = 2
 		players.add_child(player2)
-	if global.player_2_character == 1:
+	if global.player_2_character == 2:
 		player2 = scene_zhin.instantiate()
 		player2.position = Vector2(50, 0)
 		player2.player = 2
