@@ -10,8 +10,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="player_1" type="GridContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+columns = 2
+
+[node name="zhin_1" type="TextureButton" parent="player_1"]
+layout_mode = 2
 texture_normal = ExtResource("1_tpsvn")
+
+[node name="hon_1" type="TextureButton" parent="player_1"]
+layout_mode = 2
+
+[node name="player_2" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="zhin_2" type="TextureButton" parent="player_2"]
+layout_mode = 2
+
+[node name="hon_2" type="TextureButton" parent="player_2"]
+layout_mode = 2
