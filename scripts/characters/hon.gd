@@ -63,33 +63,33 @@ func _physics_process(delta):
 	#Check if player is trying to low blow and if they can, then executes the move
 	if is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
-		animation_player.play("crouching_low_punch")
+		animation_player.play("crouch_low")
 		await get_tree().create_timer(0.9).timeout
 		is_attacking = false
 	#Checks if the standing walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and !is_crouching and is_on_floor() and !is_attacking:
 		if !is_flipped:
 			if velocity.x > 0:
-				animation_player.play("standing_walk")
+				animation_player.play("stand_walk")
 			elif velocity.x < 0:
-				animation_player.play_backwards("standing_walk")
+				animation_player.play_backwards("stand_walk")
 		else:
 			if velocity.x < 0:
-				animation_player.play("standing_walk")
+				animation_player.play("stand_walk")
 			elif velocity.x > 0:
-				animation_player.play_backwards("standing_walk")
+				animation_player.play_backwards("stand_walk")
 	#Checks if the crouching walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and is_crouching and is_on_floor() and !is_attacking:
 		if !is_flipped:
 			if velocity.x > 0:
-				animation_player.play("crouching_walk")
+				animation_player.play("crouch_walk")
 			if velocity.x < 0:
-				animation_player.play_backwards("crouching_walk")
+				animation_player.play_backwards("crouch_walk")
 		else:
 			if velocity.x < 0:
-				animation_player.play("crouching_walk")
+				animation_player.play("crouch_walk")
 			if velocity.x > 0:
-				animation_player.play_backwards("crouching_walk")
+				animation_player.play_backwards("crouch_walk")
 	#Checks if the idle animation should be played, then plays it
 	elif is_on_floor() and !is_attacking:
 		animation_player.play(animation_idle)
@@ -102,11 +102,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed(down) and is_on_floor() and !is_attacking:
 		is_crouching = true
 		speed = crouching_speed
-		animation_idle = "crouching_idle"
+		animation_idle = "crouch_idle"
 	else:
 		is_crouching = false
 		speed = standing_speed
-		animation_idle = "standing_idle"
+		animation_idle = "stand_idle"
 	
 	#Checks if player wants to jump and can jump, then jumps
 	if Input.is_action_pressed(up) and is_on_floor() and !is_crouching and !is_attacking:
