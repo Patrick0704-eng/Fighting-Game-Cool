@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cofufxnhhngdq"]
+[gd_scene load_steps=4 format=3 uid="uid://cofufxnhhngdq"]
 
 [ext_resource type="Texture2D" uid="uid://begwloepqmgrk" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior_Portrait.png" id="1_tpsvn"]
+[ext_resource type="Script" path="res://scripts/gui/character_select.gd" id="1_xvs0u"]
+[ext_resource type="Texture2D" uid="uid://0vq1c4ncdk1q" path="res://assets/characters/hon/normal/reference.png" id="3_ow0ew"]
 
 [node name="character_select" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xvs0u")
 
 [node name="player_1" type="GridContainer" parent="."]
 layout_mode = 0
@@ -22,6 +25,7 @@ texture_normal = ExtResource("1_tpsvn")
 
 [node name="hon_1" type="TextureButton" parent="player_1"]
 layout_mode = 2
+texture_normal = ExtResource("3_ow0ew")
 
 [node name="player_2" type="GridContainer" parent="."]
 layout_mode = 0
@@ -33,3 +37,7 @@ layout_mode = 2
 
 [node name="hon_2" type="TextureButton" parent="player_2"]
 layout_mode = 2
+
+[node name="player_1_cursor" type="Sprite2D" parent="."]
+
+[node name="player_2_cursor" type="Sprite2D" parent="."]

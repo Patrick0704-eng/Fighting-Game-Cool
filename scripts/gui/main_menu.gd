@@ -10,5 +10,5 @@ func _process(_delta):
 
 
 func _on_play_pressed():
-	#Will change this to character select scene, goes straight to temple scene for now
-	get_tree().change_scene_to_file("res://scenes/maps/temple.tscn")
+	#Will change this to character select scene
+	get_tree().change_scene_to_file("res://scenes/gui/character_select.tscn")
