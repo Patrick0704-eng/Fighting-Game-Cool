@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 #Define the hon's different speeds
-var flying_speed = 150.0
+var jump_high_speed = 150.0
+var jump_low_speed = 100.0
 var standing_speed = 50.0
 var crouching_speed = 25.0
 var jump_velocity = -350.0
@@ -30,7 +31,8 @@ var is_crouching = false
 var is_attacking = false
 var is_walking = false
 var is_jumping = false
-var is_jump_high
+var is_jump_high = false
+var is_jump_low = false
 
 #Define a variable to see whether or not the player is flipped
 var is_flipped = false
@@ -67,6 +69,11 @@ func _physics_process(delta):
 		is_attacking = true
 		is_jump_high = true
 		animation_player.play("jump_high")
+	#Check if the player can body slam, then plays the animation and sets fly kick variables to true
+	elif Input.is_action_just_pressed(low) and !is_on_floor() and !is_attacking:
+		is_attacking = true
+		is_jump_low = true
+		animation_player.play("jump_low")
 	#Check if player is trying and can standing low attack, then attacks
 	elif !is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
@@ -113,11 +120,17 @@ func _physics_process(delta):
 	elif is_jump_high:
 		is_attacking = false
 		is_jump_high = false
+	elif is_jump_low:
+		is_attacking = false
+		is_jump_low = false
 	
 	#Changes the player's speed and is_crouching bool based on their state
 	if is_jump_high:
 		is_crouching = false
-		speed = flying_speed
+		speed = jump_high_speed
+	elif is_jump_low:
+		is_crouching = false
+		speed = jump_low_speed
 	elif Input.is_action_pressed(down) and is_on_floor() and !is_attacking:
 		is_crouching = true
 		speed = crouching_speed
@@ -134,7 +147,7 @@ func _physics_process(delta):
 	#Handles horizontal movement
 	#Add acceleration over time when moving towards enemy to give aggressor the advantage
 	var direction = Input.get_axis(left, right)
-	if direction and !is_attacking or direction and is_jump_high: 
+	if direction and !is_attacking or direction and is_jump_high or direction and is_jump_low: 
 		velocity.x = direction * speed
 		is_walking = true
 	else:
