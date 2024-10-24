@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-#Define the standing speed, crouching speed and jump velo of hon
+#Define the hon's different speeds
+var flying_speed = 150.0
 var standing_speed = 50.0
 var crouching_speed = 25.0
 var jump_velocity = -350.0
@@ -29,6 +30,7 @@ var is_crouching = false
 var is_attacking = false
 var is_walking = false
 var is_jumping = false
+var is_jump_high
 
 #Define a variable to see whether or not the player is flipped
 var is_flipped = false
@@ -60,8 +62,19 @@ func _physics_process(delta):
 	if player == 2:
 		animation_frames.flip_h = true
 		is_flipped = true
+	#Check if the player can fly kick, then plays the animation and sets fly kick variables to true
+	if Input.is_action_just_pressed(high) and !is_on_floor() and !is_attacking:
+		is_attacking = true
+		is_jump_high = true
+		animation_player.play("jump_high")
+	#Check if player is trying and can standing low attack, then attacks
+	elif !is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
+		is_attacking = true
+		animation_player.play("stand_low")
+		await get_tree().create_timer(0.6).timeout
+		is_attacking = false
 	#Check if player is trying to low blow and if they can, then executes the move
-	if is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
+	elif is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("crouch_low")
 		await get_tree().create_timer(0.9).timeout
@@ -94,12 +107,18 @@ func _physics_process(delta):
 	elif is_on_floor() and !is_attacking:
 		animation_player.play(animation_idle)
 	
-	#Handles gravity
+	#Handles gravity and checks when to disable jump attacks
 	if !is_on_floor():
 		velocity.y += gravity * delta
+	elif is_jump_high:
+		is_attacking = false
+		is_jump_high = false
 	
-	#Checks if the player wants to crouch and can crouch, then runs crouch funtionality
-	if Input.is_action_pressed(down) and is_on_floor() and !is_attacking:
+	#Changes the player's speed and is_crouching bool based on their state
+	if is_jump_high:
+		is_crouching = false
+		speed = flying_speed
+	elif Input.is_action_pressed(down) and is_on_floor() and !is_attacking:
 		is_crouching = true
 		speed = crouching_speed
 		animation_idle = "crouch_idle"
@@ -109,13 +128,13 @@ func _physics_process(delta):
 		animation_idle = "stand_idle"
 	
 	#Checks if player wants to jump and can jump, then jumps
-	if Input.is_action_pressed(up) and is_on_floor() and !is_crouching and !is_attacking:
+	if Input.is_action_just_pressed(up) and is_on_floor() and !is_crouching and !is_attacking:
 		velocity.y = jump_velocity
 	
 	#Handles horizontal movement
 	#Add acceleration over time when moving towards enemy to give aggressor the advantage
 	var direction = Input.get_axis(left, right)
-	if direction and !is_attacking: 
+	if direction and !is_attacking or direction and is_jump_high: 
 		velocity.x = direction * speed
 		is_walking = true
 	else:
