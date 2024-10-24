@@ -6,7 +6,7 @@ var player2
 
 #Preload hon to be instantiated
 @onready var scene_hon = preload("res://scenes/characters/hon.tscn")
-
+@onready var scene_zhin = preload("res://scenes/characters/zhin.tscn")
 #Define the parent node of the players
 @onready var players = $players
 
@@ -23,9 +23,19 @@ func _ready():
 		player1.position = Vector2(-50, 0)
 		player1.player = 1
 		players.add_child(player1)
+	if global.player_1_character == 1:
+		player1 = scene_zhin.instantiate()
+		player1.position = Vector2(-50, 0)
+		player1.player = 1
+		players.add_child(player1)
 	#Check player2's selected character and instantiate them
 	if global.player_2_character == 0:
 		player2 = scene_hon.instantiate()
+		player2.position = Vector2(50, 0)
+		player2.player = 2
+		players.add_child(player2)
+	if global.player_2_character == 1:
+		player2 = scene_zhin.instantiate()
 		player2.position = Vector2(50, 0)
 		player2.player = 2
 		players.add_child(player2)
