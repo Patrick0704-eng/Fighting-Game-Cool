@@ -20,10 +20,9 @@ var left = "left1"
 var down = "down1"
 var right = "right1"
 var block = "block1"
-var high_punch = "high_punch1"
-var low_punch = "low_punch1"
-var high_kick = "high_kick1"
-var low_kick = "low_kick1"
+var high = "high1"
+var low = "low1"
+var unique = "unique1"
 
 #Define all action booleans, set to false by default
 var is_crouching = false
@@ -52,10 +51,9 @@ func _ready():
 		down = "down2"
 		right = "right2"
 		block = "block2"
-		high_punch = "high_punch2"
-		low_punch = "low_punch2"
-		high_kick = "high_kick2"
-		low_kick = "low_kick2"
+		high = "high2"
+		low = "low2"
+		unique = "unique2"
 
 func _physics_process(delta):
 	#Flip the player if they are player 2
@@ -63,7 +61,7 @@ func _physics_process(delta):
 		animation_frames.flip_h = true
 		is_flipped = true
 	#Check if player is trying to low blow and if they can, then executes the move
-	if is_crouching and Input.is_action_just_pressed(low_punch) and is_on_floor() and !is_attacking:
+	if is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("crouching_low_punch")
 		await get_tree().create_timer(0.9).timeout
