@@ -10,6 +10,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("lock_1"):
+		locked_1 = true
+	if Input.is_action_just_pressed("lock_2"):
+		locked_2 = true
 	if !locked_1:
 		if Input.is_action_just_pressed("right1"):
 			if global.player_1_character < 2:
