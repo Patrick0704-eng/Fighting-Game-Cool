@@ -19,24 +19,29 @@ offset_right = 40.0
 offset_bottom = 40.0
 columns = 2
 
-[node name="zhin_1" type="TextureButton" parent="player_1"]
-layout_mode = 2
-texture_normal = ExtResource("1_tpsvn")
-
 [node name="hon_1" type="TextureButton" parent="player_1"]
 layout_mode = 2
 texture_normal = ExtResource("3_ow0ew")
 
+[node name="zhin_1" type="TextureButton" parent="player_1"]
+layout_mode = 2
+texture_normal = ExtResource("1_tpsvn")
+
 [node name="player_2" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="zhin_2" type="TextureButton" parent="player_2"]
-layout_mode = 2
+offset_left = 379.0
+offset_top = 2.0
+offset_right = 511.0
+offset_bottom = 66.0
+columns = 2
 
 [node name="hon_2" type="TextureButton" parent="player_2"]
 layout_mode = 2
+texture_normal = ExtResource("3_ow0ew")
+
+[node name="zhin_2" type="TextureButton" parent="player_2"]
+layout_mode = 2
+texture_normal = ExtResource("1_tpsvn")
 
 [node name="player_1_cursor" type="Sprite2D" parent="."]
 
