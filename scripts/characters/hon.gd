@@ -38,7 +38,7 @@ var is_jump_low = false
 var is_flipped = false
 
 #Set the idle animation to standing by default
-var animation_idle = "standing_idle"
+var animation_idle = "stand_idle"
 
 #Reference hon's hitbox
 @onready var hit_box = $hit_box

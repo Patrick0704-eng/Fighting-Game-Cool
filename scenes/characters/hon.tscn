@@ -2,11 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
 [ext_resource type="Texture2D" uid="uid://sb0dieqd0d7w" path="res://assets/characters/hon/normal/crouch_idle.png" id="2_cnn5w"]
-[ext_resource type="Texture2D" uid="uid://db7yxy64dgshj" path="res://assets/characters/hon/normal/crouch_low.png" id="3_e8v2t"]
-[gd_scene load_steps=42 format=3 uid="uid://dp437v6nkr7ce"]
-
-[ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
-[ext_resource type="Texture2D" uid="uid://sb0dieqd0d7w" path="res://assets/characters/hon/normal/crouch_idle.png" id="2_cnn5w"]
 [ext_resource type="Texture2D" uid="uid://cfqj508s8udgi" path="res://assets/characters/hon/normal/idle.png" id="4_kgyh4"]
 [ext_resource type="Texture2D" uid="uid://cjbh2hlv11db7" path="res://assets/characters/hon/normal/crouch_walk.png" id="4_ytecd"]
 [ext_resource type="Texture2D" uid="uid://cpa8eg6vp7d6s" path="res://assets/characters/hon/normal/walk.png" id="5_8jic5"]
@@ -846,10 +841,14 @@ _data = {
 "crouch_idle": SubResource("Animation_ibmqa"),
 "crouch_low": SubResource("Animation_f2ooi"),
 "crouch_walk": SubResource("Animation_wfrci"),
+<<<<<<< HEAD
 "jump_high": SubResource("Animation_e4wc2"),
 "jump_low": SubResource("Animation_p8tpc"),
 "stand_idle": SubResource("Animation_jifq8"),
 "stand_low": SubResource("Animation_1o7br"),
+=======
+"stand_idle": SubResource("Animation_jifq8"),
+>>>>>>> 7d98081a075289bbb32f5c8303ded922310f7c46
 "stand_walk": SubResource("Animation_20hs5")
 }
 
