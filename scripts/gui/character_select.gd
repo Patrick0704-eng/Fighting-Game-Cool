@@ -1,11 +1,13 @@
 extends Control
 @onready var cursor_1 = $player_1_cursor
 @onready var cursor_2 = $player_2_cursor
+@onready var grid_1 = $player_1
+@onready var grid_2 = $player_2
 var locked_1
 var locked_2
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,3 +36,5 @@ func _process(delta):
 				#cursor_2.position.x -=
 	if locked_1 and locked_2:
 		get_tree().change_scene_to_file("res://scenes/maps/temple.tscn")
+
+
