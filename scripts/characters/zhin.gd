@@ -38,7 +38,7 @@ var is_jump_low = false
 var is_flipped = false
 
 #Set the idle animation to standing by default
-var animation_idle = "standing_idle"
+var animation_idle = "idle"
 
 #Reference hon's hitbox
 @onready var hit_box = $hit_box
@@ -68,7 +68,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(high) and !is_on_floor() and !is_attacking:
 		is_attacking = true
 		is_jump_high = true
-		animation_player.play("jump_high")
+		animation_player.play("up_slash")
 	#Check if the player can body slam, then plays the animation and sets fly kick variables to true
 	elif Input.is_action_just_pressed(low) and !is_on_floor() and !is_attacking:
 		is_attacking = true
@@ -77,27 +77,27 @@ func _physics_process(delta):
 	#Check if player is trying and can standing low attack, then attacks
 	elif !is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
-		animation_player.play("stand_low")
+		animation_player.play("stab")
 		await get_tree().create_timer(0.6).timeout
 		is_attacking = false
 	#Check if player is trying to low blow and if they can, then executes the move
 	elif is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
-		animation_player.play("crouch_low")
+		animation_player.play("crouch_attack")
 		await get_tree().create_timer(0.9).timeout
 		is_attacking = false
 	#Checks if the standing walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and !is_crouching and is_on_floor() and !is_attacking:
 		if !is_flipped:
 			if velocity.x > 0:
-				animation_player.play("stand_walk")
+				animation_player.play("walk")
 			elif velocity.x < 0:
-				animation_player.play_backwards("stand_walk")
+				animation_player.play_backwards("walk")
 		else:
 			if velocity.x < 0:
-				animation_player.play("stand_walk")
+				animation_player.play("walk")
 			elif velocity.x > 0:
-				animation_player.play_backwards("stand_walk")
+				animation_player.play_backwards("walk")
 	#Checks if the crouching walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and is_crouching and is_on_floor() and !is_attacking:
 		if !is_flipped:
@@ -134,11 +134,11 @@ func _physics_process(delta):
 	elif Input.is_action_pressed(down) and is_on_floor() and !is_attacking:
 		is_crouching = true
 		speed = crouching_speed
-		animation_idle = "crouch_idle"
+		animation_idle = "crouch"
 	else:
 		is_crouching = false
 		speed = standing_speed
-		animation_idle = "stand_idle"
+		animation_idle = "idle"
 	
 	#Checks if player wants to jump and can jump, then jumps
 	if Input.is_action_just_pressed(up) and is_on_floor() and !is_crouching and !is_attacking:
