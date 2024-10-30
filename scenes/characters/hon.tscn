@@ -5,18 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cfqj508s8udgi" path="res://assets/characters/hon/normal/idle.png" id="4_kgyh4"]
 [ext_resource type="Texture2D" uid="uid://cjbh2hlv11db7" path="res://assets/characters/hon/normal/crouch_walk.png" id="4_ytecd"]
 [ext_resource type="Texture2D" uid="uid://cpa8eg6vp7d6s" path="res://assets/characters/hon/normal/walk.png" id="5_8jic5"]
-[gd_scene load_steps=62 format=3 uid="uid://dp437v6nkr7ce"]
-
-[ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
-[ext_resource type="Texture2D" uid="uid://sb0dieqd0d7w" path="res://assets/characters/hon/normal/crouch_idle.png" id="2_cnn5w"]
-[ext_resource type="Texture2D" uid="uid://db7yxy64dgshj" path="res://assets/characters/hon/normal/crouch_low.png" id="3_w0icw"]
-[ext_resource type="Texture2D" uid="uid://cpqcf5kef81x8" path="res://assets/characters/hon/normal/jump_low.png" id="4_7rupd"]
-[ext_resource type="Texture2D" uid="uid://b4ufhpyy4pkb2" path="res://assets/characters/hon/normal/jump_high.png" id="4_jculv"]
-[ext_resource type="Texture2D" uid="uid://cfqj508s8udgi" path="res://assets/characters/hon/normal/idle.png" id="4_kgyh4"]
-[ext_resource type="Texture2D" uid="uid://cjbh2hlv11db7" path="res://assets/characters/hon/normal/crouch_walk.png" id="4_ytecd"]
-[ext_resource type="Texture2D" uid="uid://cpa8eg6vp7d6s" path="res://assets/characters/hon/normal/walk.png" id="5_8jic5"]
-[ext_resource type="Texture2D" uid="uid://dx4mcjjquqbl7" path="res://assets/characters/hon/normal/low.png" id="5_51ulk"]
-[ext_resource type="Texture2D" uid="uid://dt0pf1ue1o4mh" path="res://assets/characters/hon/normal/ultimate_damage.png" id="10_4v01b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5haf"]
 size = Vector2(46, 63)
@@ -37,40 +25,31 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("2_cnn5w")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_abuhq"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcagg"]
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hsxd5"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj2gv"]
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3rx0r"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyb4o"]
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrrcq"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsa6w"]
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfkmt"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pijiy"]
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_in5na"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_86imy"]
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0i3as"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tbru"]
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ayku"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib2iw"]
 region = Rect2(448, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5u5a"]
-atlas = ExtResource("3_w0icw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_anjjs"]
 region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pk1qf"]
@@ -129,22 +108,6 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("5_8jic5")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4ud2"]
-atlas = ExtResource("10_4v01b")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wce4u"]
-atlas = ExtResource("10_4v01b")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bov6j"]
-atlas = ExtResource("10_4v01b")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2six0"]
-atlas = ExtResource("10_4v01b")
-region = Rect2(192, 0, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2dgku"]
 animations = [{
 "frames": [{
@@ -166,34 +129,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_abuhq")
+"texture": SubResource("AtlasTexture_qcagg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hsxd5")
+"texture": SubResource("AtlasTexture_fj2gv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rx0r")
+"texture": SubResource("AtlasTexture_tyb4o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qrrcq")
+"texture": SubResource("AtlasTexture_rsa6w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hfkmt")
+"texture": SubResource("AtlasTexture_pijiy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_in5na")
+"texture": SubResource("AtlasTexture_86imy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0i3as")
+"texture": SubResource("AtlasTexture_4tbru")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ayku")
+"texture": SubResource("AtlasTexture_ib2iw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y5u5a")
+"texture": SubResource("AtlasTexture_anjjs")
 }],
 "loop": false,
-"name": &"crouching_low",
+"name": &"crouching_low_punch",
 "speed": 10.0
 }, {
 "frames": [{
@@ -252,23 +215,6 @@ animations = [{
 "loop": true,
 "name": &"standing_walk",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u4ud2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wce4u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bov6j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2six0")
-}],
-"loop": true,
-"name": &"ultimate",
-"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_ksgss"]
@@ -389,7 +335,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"crouching_low"]
+"values": [&"crouching_low_punch"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -586,207 +532,12 @@ tracks/3/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_iidgf"]
-resource_name = "stand_low"
-length = 0.60001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation_frames:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"standing_low"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("animation_frames:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("hit_box:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("RectangleShape2D_x5haf")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("hit_box:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 0.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("hit_box:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_gvspu"]
-resource_name = "jump_high"
-length = 0.10001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation_frames:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jump_high"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("animation_frames:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("hit_box:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("RectangleShape2D_x5haf")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("hit_box:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 0.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("hit_box:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_s003s"]
-resource_name = "jump_low"
-length = 0.10001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animation_frames:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jump_low"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("animation_frames:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("hit_box:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("RectangleShape2D_x5haf")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("hit_box:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 0.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("hit_box:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_brukk"]
 _data = {
 "RESET": SubResource("Animation_ksgss"),
 "crouch_idle": SubResource("Animation_ibmqa"),
 "crouch_low": SubResource("Animation_f2ooi"),
 "crouch_walk": SubResource("Animation_wfrci"),
-
-"jump_high": SubResource("Animation_gvspu"),
-"jump_low": SubResource("Animation_s003s"),
 "stand_idle": SubResource("Animation_jifq8"),
 "stand_walk": SubResource("Animation_20hs5")
 }
