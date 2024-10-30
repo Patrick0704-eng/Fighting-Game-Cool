@@ -17,13 +17,15 @@ script = ExtResource("1_xvs0u")
 
 [node name="player_1_cursor" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(100, 32)
+position = Vector2(164, 32)
 texture = ExtResource("4_h86y1")
 
 [node name="player_2_cursor" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(366, 34)
+position = Vector2(100, 32)
 texture = ExtResource("5_my1bj")
+
+[node name="dual_select" type="Sprite2D" parent="."]
 
 [node name="hon" type="Sprite2D" parent="."]
 position = Vector2(100, 32)
