@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6qijsdg26ptl"]
+
+[ext_resource type="Script" path="res://scripts/gui/map_select.gd" id="1_svwhm"]
+
+[node name="map_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svwhm")
+
+[node name="cursor_1" type="Sprite2D" parent="."]
+
+[node name="cursor_2" type="Sprite2D" parent="."]
+
+[node name="dual_cursor" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="temple" type="Sprite2D" parent="."]
+
+[node name="map_2" type="Sprite2D" parent="."]

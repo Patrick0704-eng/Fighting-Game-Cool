@@ -51,17 +51,14 @@ func _process(delta):
 		if Input.is_action_just_pressed("left1"):
 			if global.player_1_character > 1:
 				global.player_1_character -= 1
-				#cursor_1.position.x -=
 	if !locked_2:
 		if Input.is_action_just_pressed("right2"):
 			if global.player_2_character < 2:
 				global.player_2_character += 1
-				#cursor_2.position.x +=
 		if Input.is_action_just_pressed("left2"):
 			if global.player_2_character > 1:
 				global.player_2_character -=1
-				#cursor_2.position.x -=
 	if locked_1 and locked_2:
-		get_tree().change_scene_to_file("res://scenes/maps/temple.tscn")
+		get_tree().change_scene_to_file("res://scenes/gui/map_select.tscn")
 
 
