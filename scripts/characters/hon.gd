@@ -74,6 +74,12 @@ func _physics_process(delta):
 		is_attacking = true
 		is_jump_low = true
 		animation_player.play("jump_low")
+	#Check if player is trying and can standing high attack, then attacks
+	elif !is_crouching and Input.is_action_just_pressed(high) and is_on_floor() and !is_attacking:
+		is_attacking = true
+		animation_player.play("stand_high")
+		await get_tree().create_timer(0.6).timeout
+		is_attacking = false
 	#Check if player is trying and can standing low attack, then attacks
 	elif !is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
