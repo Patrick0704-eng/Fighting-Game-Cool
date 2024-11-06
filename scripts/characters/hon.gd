@@ -71,17 +71,19 @@ func _physics_process(delta):
 	if player == 2:
 		animation_frames.flip_h = true
 		is_flipped = -1
-		attack_range.position.x = -30
+		attack_range.position.x = -32
 	#Check if the player can fly kick, then plays the animation and sets fly kick variables to true
 	if Input.is_action_just_pressed(high) and !is_on_floor() and !is_attacking:
 		is_attacking = true
 		is_jump_high = true
 		animation_player.play("jump_high")
-	#Check if the player can body slam, then plays the animation and sets fly kick variables to true
+	#Check if the player can body slam, then plays the animation and sets body slam variables to true
 	elif Input.is_action_just_pressed(low) and !is_on_floor() and !is_attacking:
 		is_attacking = true
 		is_jump_low = true
 		animation_player.play("jump_low")
+		if attack_range_body != null:
+			attack_range_body._hit(0, 0.5, Vector2(20*is_flipped, -250))
 	#Check if player is trying and can standing high attack, then attacks
 	elif !is_crouching and Input.is_action_just_pressed(high) and is_on_floor() and !is_attacking:
 		is_attacking = true
@@ -149,9 +151,13 @@ func _physics_process(delta):
 	
 	#Changes the player's speed and is_crouching bool based on their state
 	if is_jump_high:
+		if attack_range_body != null:
+			attack_range_body._hit(0, 0.5, Vector2(150*is_flipped, -200))
 		is_crouching = false
 		speed = jump_high_speed
 	elif is_jump_low:
+		if attack_range_body != null:
+			attack_range_body._hit(0, 0.5, Vector2(75*is_flipped, -400))
 		is_crouching = false
 		speed = jump_low_speed
 	elif Input.is_action_pressed(down) and is_on_floor() and !is_attacking:
@@ -179,20 +185,25 @@ func _physics_process(delta):
 		velocity.x = 0 #move_toward(velocity.x, 0, speed)
 		is_walking = false
 	
+	#Makes the player come out of stun if they tounch the ground
+	if is_hit and is_on_floor:
+		is_hit = false
+		is_attacking = false
+	
 	#Moves and slides
 	move_and_slide()
 
+#Make the player stunned, take a certain amount of damage and knocback based on what numbers the attack sends
 func _hit(damage, time, knockback):
-	is_hit = true
-	is_attacking = true
 	if player == 1:
 		global.player_1_health -= damage
 	elif player == 2:
 		global.player_2_health -= damage
+	#Play stun animation when it is added
 	velocity = knockback
-	await get_tree().create_timer(time).timeout
-	is_hit = false
-	is_attacking = false
+	is_hit = true
+	is_attacking = true
+	#await get_tree().create_timer(time).timeout
 
 #Save the body that enters the area as a variable if it is in the group "player"
 func _on_attack_range_body_entered(body):

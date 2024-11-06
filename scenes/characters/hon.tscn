@@ -965,7 +965,7 @@ libraries = {
 }
 
 [node name="attack_range" type="Area2D" parent="."]
-position = Vector2(38, -15)
+position = Vector2(40, -15)
 
 [node name="attack_hitbox" type="CollisionShape2D" parent="attack_range"]
 shape = SubResource("RectangleShape2D_uaq02")
