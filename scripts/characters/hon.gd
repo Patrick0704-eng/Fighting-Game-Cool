@@ -203,7 +203,6 @@ func _hit(damage, time, knockback):
 	velocity = knockback
 	is_hit = true
 	is_attacking = true
-	#await get_tree().create_timer(time).timeout
 
 #Save the body that enters the area as a variable if it is in the group "player"
 func _on_attack_range_body_entered(body):
