@@ -40,6 +40,9 @@ var is_flipped = false
 #Set the idle animation to standing by default
 var animation_idle = "stand_idle"
 
+#Define the variable to store the body that enters attack_range
+var attack_range_body = null
+
 #Reference hon's hitbox
 @onready var hit_box = $hit_box
 
@@ -168,3 +171,13 @@ func _hit(damage, time):
 		global.player_1_health -= damage
 	elif player == 2:
 		global.player_1_health -= damage
+
+#Save the body that enters the area as a variable if it is in the group "player"
+func _on_attack_range_body_entered(body):
+	if body.is_in_group("player"):
+		attack_range_body = body
+
+#Clear the variable saving the body that entered when the body leaves if it is in the group "player"
+func _on_attack_range_body_exited(body):
+	if body.is_in_group("player"):
+		attack_range_body = null

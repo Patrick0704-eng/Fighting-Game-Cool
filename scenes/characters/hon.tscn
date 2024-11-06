@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dp437v6nkr7ce"]
+[gd_scene load_steps=66 format=3 uid="uid://dp437v6nkr7ce"]
 
 [ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
 [ext_resource type="Texture2D" uid="uid://sb0dieqd0d7w" path="res://assets/characters/hon/normal/crouch_idle.png" id="2_cnn5w"]
@@ -946,7 +946,9 @@ _data = {
 "stand_walk": SubResource("Animation_20hs5")
 }
 
-[node name="hon" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uaq02"]
+
+[node name="hon" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ipo3d")
 
 [node name="hit_box" type="CollisionShape2D" parent="."]
@@ -961,3 +963,12 @@ animation = &"standing_idle"
 libraries = {
 "": SubResource("AnimationLibrary_brukk")
 }
+
+[node name="attack_range" type="Area2D" parent="."]
+
+[node name="attack_hitbox" type="CollisionShape2D" parent="attack_range"]
+position = Vector2(37, -11)
+shape = SubResource("RectangleShape2D_uaq02")
+
+[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
