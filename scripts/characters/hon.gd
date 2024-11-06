@@ -86,21 +86,28 @@ func _physics_process(delta):
 	elif !is_crouching and Input.is_action_just_pressed(high) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("stand_high")
+		await get_tree().create_timer(0.2).timeout
 		if attack_range_body != null:
-			attack_range_body._hit(0, 0.5, Vector2(50*is_flipped, -250))
-		await get_tree().create_timer(0.6).timeout
+			attack_range_body._hit(0, 0.5, Vector2(20*is_flipped, -250))
+		await get_tree().create_timer(0.3).timeout
 		is_attacking = false
 	#Check if player is trying and can standing low attack, then attacks
 	elif !is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("stand_low")
-		await get_tree().create_timer(0.6).timeout
+		await get_tree().create_timer(0.2).timeout
+		if attack_range_body != null:
+			attack_range_body._hit(0, 0.7, Vector2(30*is_flipped, -350))
+		await get_tree().create_timer(0.3).timeout
 		is_attacking = false
 	#Check if player is trying to low blow and if they can, then executes the move
 	elif is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("crouch_low")
-		await get_tree().create_timer(0.9).timeout
+		await get_tree().create_timer(0.4).timeout
+		if attack_range_body != null:
+			attack_range_body._hit(0, 1.4, Vector2(0*is_flipped, 0))
+		await get_tree().create_timer(0.5).timeout
 		is_attacking = false
 	#Checks if the standing walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and !is_crouching and is_on_floor() and !is_attacking:
