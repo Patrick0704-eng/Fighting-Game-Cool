@@ -56,57 +56,14 @@ func _process(delta):
 	if Input.is_action_just_pressed("lock_2"):
 		locked_2 = true
 	if locked_1 and locked_2:
-		if map_select_1 == 1 and map_select_2 == 1:
-			global.map = 1
-		if map_select_1 == 1 and map_select_2 == 2:
-			if pick_player_map == 1:
-				global.map = 1
-			if pick_player_map == 2:
-				global.map = 2
-		if map_select_1 == 2 and map_select_2 == 1:
-			if pick_player_map == 1:
-				global.map = 2
-			if pick_player_map == 2:
-				global.map = 1
-		if map_select_1 and map_select_2 == 2:
-			global.map = 2
-		if map_select_1 == 3 and map_select_2 == 1:
-			if pick_player_map == 1:
-				if random_map == 1:
-					global.map = 1
-				if random_map == 2:
-					global.map = 2
-			if pick_player_map == 2:
-				global.map = 1
-		if map_select_1 == 3 and map_select_2 == 2:
-			if pick_player_map == 1:
-				if random_map == 1:
-					global.map =1
-				if random_map == 2:
-					global.map = 2
-			if pick_player_map == 2:
-				global.map = 2
-		if map_select_1 == 3 and map_select_2 == 3:
-			if random_map == 1:
-				global.map = 1
-			if random_map == 2:
-				global.map = 2
-		if map_select_1 == 2 and map_select_2 == 3:
-			if pick_player_map == 1:
-				global.map = 2
-			if pick_player_map == 2:
-				if random_map == 1:
-					global.map = 1
-				if random_map == 2:
-					global.map = 2
-		if map_select_1 == 1 and map_select_2 == 3:
-			if pick_player_map == 1:
-				global.map = 1
-			if pick_player_map == 2:
-				if random_map == 1:
-					global.map = 1
-				if random_map == 2:
-					global.map= 2
+		if pick_player_map == 1 and map_select_1 == 3:
+			global.map = random_map
+		elif pick_player_map == 1:
+			global.map = map_select_1
+		if pick_player_map == 2 and map_select_2 == 3:
+			global.map = random_map
+		elif pick_player_map == 2:
+			global.map = map_select_2
 		if global.map == 1:
 			get_tree().change_scene_to_file("res://scenes/maps/temple.tscn")
 		if global.map == 2:
