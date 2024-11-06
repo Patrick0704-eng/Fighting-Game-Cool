@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/gui/map_select.gd" id="1_svwhm"]
 [ext_resource type="Texture2D" uid="uid://bf8gfnf76oi4h" path="res://assets/gui/character_select_menu/p1_select.png" id="2_i6jxl"]
 [ext_resource type="Texture2D" uid="uid://d3uromcspbgrn" path="res://assets/characters/p2_select.png" id="3_ubtyn"]
-[ext_resource type="Texture2D" uid="uid://dr3pcx2q00187" path="res://assets/gui/character_select_menu/dual_select.png" id="4_5a2xa"]
+[ext_resource type="Texture2D" uid="uid://44hymgx6hrns" path="res://assets/gui/character_select_menu/dual_select.png" id="4_5a2xa"]
 [ext_resource type="Texture2D" uid="uid://dg3d6dvf1vh7x" path="res://assets/maps/temple/source_image.jpg" id="5_kffrt"]
 [ext_resource type="Texture2D" uid="uid://0vq1c4ncdk1q" path="res://assets/characters/hon/normal/reference.png" id="6_122tv"]
 [ext_resource type="Texture2D" uid="uid://begwloepqmgrk" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior_Portrait.png" id="7_y6us6"]

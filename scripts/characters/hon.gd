@@ -33,9 +33,10 @@ var is_walking = false
 var is_jumping = false
 var is_jump_high = false
 var is_jump_low = false
+var is_hit = false
 
-#Define a variable to see whether or not the player is flipped
-var is_flipped = false
+#Define a variable to see whether or not the player is flipped (1 = false, -1 = true)
+var is_flipped = 1
 
 #Set the idle animation to standing by default
 var animation_idle = "stand_idle"
@@ -49,6 +50,9 @@ var attack_range_body = null
 #Reference the animations
 @onready var animation_frames = $animation_frames
 @onready var animation_player = $animation_player
+
+#Reference the attack range area
+@onready var attack_range = $attack_range
 
 func _ready():
 	#Set the keybinds to player2's keybinds if player == 2
@@ -66,7 +70,8 @@ func _physics_process(delta):
 	#Flip the player if they are player 2
 	if player == 2:
 		animation_frames.flip_h = true
-		is_flipped = true
+		is_flipped = -1
+		attack_range.position.x = -30
 	#Check if the player can fly kick, then plays the animation and sets fly kick variables to true
 	if Input.is_action_just_pressed(high) and !is_on_floor() and !is_attacking:
 		is_attacking = true
@@ -81,6 +86,8 @@ func _physics_process(delta):
 	elif !is_crouching and Input.is_action_just_pressed(high) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("stand_high")
+		if attack_range_body != null:
+			attack_range_body._hit(0, 0.5, Vector2(50*is_flipped, -250))
 		await get_tree().create_timer(0.6).timeout
 		is_attacking = false
 	#Check if player is trying and can standing low attack, then attacks
@@ -156,9 +163,11 @@ func _physics_process(delta):
 	#Handles horizontal movement
 	#Add acceleration over time when moving towards enemy to give aggressor the advantage
 	var direction = Input.get_axis(left, right)
-	if direction and !is_attacking or direction and is_jump_high or direction and is_jump_low: 
+	if direction and !is_attacking and !is_hit or direction and is_jump_high or direction and is_jump_low: 
 		velocity.x = direction * speed
 		is_walking = true
+	elif is_hit:
+		pass
 	else:
 		velocity.x = 0 #move_toward(velocity.x, 0, speed)
 		is_walking = false
@@ -166,11 +175,17 @@ func _physics_process(delta):
 	#Moves and slides
 	move_and_slide()
 
-func _hit(damage, time):
+func _hit(damage, time, knockback):
+	is_hit = true
+	is_attacking = true
 	if player == 1:
 		global.player_1_health -= damage
 	elif player == 2:
-		global.player_1_health -= damage
+		global.player_2_health -= damage
+	velocity = knockback
+	await get_tree().create_timer(time).timeout
+	is_hit = false
+	is_attacking = false
 
 #Save the body that enters the area as a variable if it is in the group "player"
 func _on_attack_range_body_entered(body):
