@@ -159,7 +159,7 @@ func _physics_process(delta):
 		is_jump_low = false
 		air_hit = false
 	
-	#Changes the player's speed and is_crouching bool based on their state
+	#Changes the player's speed and is_crouching bool based on their state. manages attacks in the air
 	if is_jump_high:
 		if attack_range_body != null and !air_hit:
 			attack_range_body._hit(0, 0.5, Vector2(150*is_flipped, -200))
