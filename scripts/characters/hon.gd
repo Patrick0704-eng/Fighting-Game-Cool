@@ -34,6 +34,7 @@ var is_jumping = false
 var is_jump_high = false
 var is_jump_low = false
 var is_hit = false
+var air_hit = false
 
 #Define a variable to see whether or not the player is flipped (1 = false, -1 = true)
 var is_flipped = 1
@@ -152,19 +153,23 @@ func _physics_process(delta):
 	elif is_jump_high:
 		is_attacking = false
 		is_jump_high = false
+		air_hit = false
 	elif is_jump_low:
 		is_attacking = false
 		is_jump_low = false
+		air_hit = false
 	
 	#Changes the player's speed and is_crouching bool based on their state
 	if is_jump_high:
-		if attack_range_body != null:
+		if attack_range_body != null and !air_hit:
 			attack_range_body._hit(0, 0.5, Vector2(150*is_flipped, -200))
+			air_hit = true
 		is_crouching = false
 		speed = jump_high_speed
 	elif is_jump_low:
-		if attack_range_body != null:
+		if attack_range_body != null and !air_hit:
 			attack_range_body._hit(0, 0.5, Vector2(75*is_flipped, -400))
+			air_hit = true
 		is_crouching = false
 		speed = jump_low_speed
 	elif Input.is_action_pressed(down) and is_on_floor() and !is_attacking:
