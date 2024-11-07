@@ -117,7 +117,7 @@ func _physics_process(delta):
 		is_attacking = false
 	#Checks if the standing walk animation should be played, then plays it based on velocity direction and is_flipped bool
 	elif is_walking and !is_crouching and is_on_floor() and !is_attacking:
-		if !is_flipped:
+		if is_flipped == 1:
 			if velocity.x > 0:
 				animation_player.play("stand_walk")
 			elif velocity.x < 0:
@@ -142,6 +142,9 @@ func _physics_process(delta):
 	#Checks if the idle animation should be played, then plays it
 	elif is_on_floor() and !is_attacking:
 		animation_player.play(animation_idle)
+	#Checks if the player is jumping and playing no animations, then plays jump animation
+	elif !is_on_floor() and !is_attacking:
+		animation_player.play("jump")
 	
 	#Handles gravity and checks when to disable jump attacks
 	if !is_on_floor():
