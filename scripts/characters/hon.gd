@@ -67,11 +67,15 @@ func _ready():
 		unique = "unique2"
 
 func _physics_process(delta):
-	#Flip the player if they are player 2
+	#Flip the player if is flipped is true
 	if player == 2:
-		animation_frames.flip_h = true
 		is_flipped = -1
+	if is_flipped == -1:
+		animation_frames.flip_h = true
 		attack_range.position.x = -32
+	else:
+		animation_frames.flip_h = false
+		attack_range.position.x = 40
 	#Check if the player can fly kick, then plays the animation and sets fly kick variables to true
 	if Input.is_action_just_pressed(high) and !is_on_floor() and !is_attacking:
 		is_attacking = true
@@ -174,19 +178,17 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	#Handles horizontal movement
-	#Add acceleration over time when moving towards enemy to give aggressor the advantage
+	#Go faster when moving towards enemy to give aggressor the advantage
 	var direction = Input.get_axis(left, right)
 	if direction and !is_attacking and !is_hit or direction and is_jump_high or direction and is_jump_low: 
-		velocity.x = direction * speed
+		velocity.x = direction * speed + is_flipped * 5
 		is_walking = true
-	elif is_hit:
-		pass
-	else:
+	elif !is_hit:
 		velocity.x = 0 #move_toward(velocity.x, 0, speed)
 		is_walking = false
 	
-	#Makes the player come out of stun if they tounch the ground
-	if is_hit and is_on_floor:
+	#Makes the player come out of stun if they touch the ground
+	if is_hit and velocity.y >= 0 and is_on_floor():
 		is_hit = false
 		is_attacking = false
 	
@@ -200,7 +202,10 @@ func _hit(damage, time, knockback):
 	elif player == 2:
 		global.player_2_health -= damage
 	#Play stun animation when it is added
+	is_hit = true
 	velocity = knockback
+	is_jump_high = false
+	is_jump_low = false
 	is_hit = true
 	is_attacking = true
 
