@@ -70,4 +70,9 @@ func _process(delta):
 	camera.zoom = Vector2(cza, cza)
 	
 	#Flip the players if the pass by each other
-	
+	if player1.position.x > player2.position.x:
+		player1.is_flipped = -1
+		player2.is_flipped = 1
+	else:
+		player1.is_flipped = 1
+		player2.is_flipped = -1

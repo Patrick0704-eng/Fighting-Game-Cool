@@ -71,7 +71,6 @@ func _ready():
 		unique = "unique2"
 	#Change things if they are player2
 	if player == 2:
-		is_flipped = -1
 		hon_body.collision_layer = 2
 		hon_body.collision_mask = 2
 		attack_range.collision_layer = 1
