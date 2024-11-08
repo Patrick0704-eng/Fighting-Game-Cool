@@ -21,6 +21,8 @@ offset_bottom = 360.0
 texture = ExtResource("2_t4y05")
 
 [node name="stage_collision" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="north" type="CollisionShape2D" parent="stage_collision"]
 position = Vector2(324, 0)

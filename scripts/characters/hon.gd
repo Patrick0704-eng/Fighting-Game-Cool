@@ -55,6 +55,9 @@ var attack_range_body = null
 #Reference the attack range area
 @onready var attack_range = $attack_range
 
+#Reference the hon character body
+@onready var hon_body = $"."
+
 func _ready():
 	#Set the keybinds to player2's keybinds if player == 2
 	if player == 2:
@@ -66,11 +69,14 @@ func _ready():
 		high = "high2"
 		low = "low2"
 		unique = "unique2"
+	#Change things if they are player2
+	if player == 2:
+		is_flipped = -1
+		hon_body.collision_layer = 2
+		hon_body.collision_mask = 2
 
 func _physics_process(delta):
 	#Flip the player if is flipped is true
-	if player == 2:
-		is_flipped = -1
 	if is_flipped == -1:
 		animation_frames.flip_h = true
 		attack_range.position.x = -32
@@ -95,7 +101,7 @@ func _physics_process(delta):
 		animation_player.play("stand_high")
 		await get_tree().create_timer(0.2).timeout
 		if attack_range_body != null:
-			attack_range_body._hit(0, 0.5, Vector2(20*is_flipped, -250))
+			attack_range_body._hit(5, 0.5, Vector2(20*is_flipped, -250))
 		await get_tree().create_timer(0.3).timeout
 		is_attacking = false
 	#Check if player is trying and can standing low attack, then attacks
@@ -104,7 +110,16 @@ func _physics_process(delta):
 		animation_player.play("stand_low")
 		await get_tree().create_timer(0.2).timeout
 		if attack_range_body != null:
-			attack_range_body._hit(0, 0.7, Vector2(30*is_flipped, -350))
+			attack_range_body._hit(6, 0.7, Vector2(30*is_flipped, -350))
+		await get_tree().create_timer(0.4).timeout
+		is_attacking = false
+	#Check if player is trying to crouching high and if they can, then executes the move
+	elif is_crouching and Input.is_action_just_pressed(high) and is_on_floor() and !is_attacking:
+		is_attacking = true
+		animation_player.play("crouch_high")
+		await get_tree().create_timer(0.2).timeout
+		if attack_range_body != null:
+			attack_range_body._hit(4, 0.7, Vector2(25*is_flipped, -300))
 		await get_tree().create_timer(0.3).timeout
 		is_attacking = false
 	#Check if player is trying to low blow and if they can, then executes the move
@@ -113,7 +128,7 @@ func _physics_process(delta):
 		animation_player.play("crouch_low")
 		await get_tree().create_timer(0.4).timeout
 		if attack_range_body != null:
-			attack_range_body._hit(0, 1.4, Vector2(0*is_flipped, 0))
+			attack_range_body._hit(15, 1.4, Vector2(0*is_flipped, 0))
 		await get_tree().create_timer(0.5).timeout
 		is_attacking = false
 	#Checks if the standing walk animation should be played, then plays it based on velocity direction and is_flipped bool
@@ -162,13 +177,13 @@ func _physics_process(delta):
 	#Changes the player's speed and is_crouching bool based on their state. manages attacks in the air
 	if is_jump_high:
 		if attack_range_body != null and !air_hit:
-			attack_range_body._hit(0, 0.5, Vector2(150*is_flipped, -200))
+			attack_range_body._hit(5, 0.5, Vector2(150*is_flipped, -200))
 			air_hit = true
 		is_crouching = false
 		speed = jump_high_speed
 	elif is_jump_low:
 		if attack_range_body != null and !air_hit:
-			attack_range_body._hit(0, 0.5, Vector2(75*is_flipped, -400))
+			attack_range_body._hit(3, 0.5, Vector2(75*is_flipped, -300))
 			air_hit = true
 		is_crouching = false
 		speed = jump_low_speed
