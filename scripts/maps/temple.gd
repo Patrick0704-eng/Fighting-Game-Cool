@@ -59,3 +59,6 @@ func _process(delta):
 	elif camera.position.x <= 196:
 		camera.position.x = 196
 	camera.zoom = Vector2(cza, cza)
+	
+	#Flip the players if the pass by each other
+	

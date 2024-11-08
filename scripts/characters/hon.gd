@@ -74,6 +74,8 @@ func _ready():
 		is_flipped = -1
 		hon_body.collision_layer = 2
 		hon_body.collision_mask = 2
+		attack_range.collision_layer = 2
+		attack_range.collision_mask = 2
 
 func _physics_process(delta):
 	#Flip the player if is flipped is true
