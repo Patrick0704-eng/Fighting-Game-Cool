@@ -7,11 +7,16 @@ var player2
 #Preload hon to be instantiated
 @onready var scene_hon = preload("res://scenes/characters/hon.tscn")
 @onready var scene_zhin = preload("res://scenes/characters/zhin.tscn")
+
 #Define the parent node of the players
 @onready var players = $players
 
 #Reference the camera variable
 @onready var camera = $camera
+
+#Reference the health bars
+@onready var player_1_health = $CanvasLayer/player_1_health
+@onready var player_2_health = $CanvasLayer/player_2_health
 
 func _ready():
 	#Set both players' health to 100
@@ -42,6 +47,10 @@ func _ready():
 
 
 func _process(delta):
+	#Set the health bars to reflect each player's health
+	player_1_health.value = global.player_1_health
+	player_2_health.value = global.player_2_health
+	
 	#Set the camera's x position to the average x position of player 1 and player 2
 	camera.position.x = player1.position.x + player2.position.x + 328
 	

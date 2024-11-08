@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfe4480dgbxh8"]
+[gd_scene load_steps=10 format=3 uid="uid://cfe4480dgbxh8"]
 
 [ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
 [ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
+[ext_resource type="Texture2D" uid="uid://cpoaiy5c4vn1m" path="res://assets/gui/in_fight/health_bar_background.png" id="3_vvts7"]
+[ext_resource type="Texture2D" uid="uid://c1ynvmesjtcgp" path="res://assets/gui/in_fight/health_bar_red.png" id="4_syodn"]
+[ext_resource type="Texture2D" uid="uid://dtc76tyv80h6u" path="res://assets/gui/in_fight/health_bar_blu.png" id="5_ndgth"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eu8xy"]
 
@@ -51,3 +54,28 @@ limit_right = 648
 
 [node name="players" type="Node2D" parent="."]
 position = Vector2(324, 180)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(962, 520)
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 962, 520)
+
+[node name="health_background" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("3_vvts7")
+
+[node name="player_1_health" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = -306.0
+offset_top = -163.0
+offset_right = -35.0
+offset_bottom = -136.0
+value = 100.0
+texture_progress = ExtResource("4_syodn")
+
+[node name="player_2_health" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 36.0
+offset_top = -163.0
+offset_right = 305.0
+offset_bottom = -123.0
+value = 100.0
+fill_mode = 1
+texture_progress = ExtResource("5_ndgth")
