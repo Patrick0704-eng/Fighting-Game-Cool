@@ -1,4 +1,3 @@
-
 extends Control
 
 
@@ -7,9 +6,12 @@ func _ready():
 
 
 func _process(_delta):
-	pass
+	#Switch to character select if space or enter pressed
+	if Input.is_action_just_pressed("lock_1"):
+		get_tree().change_scene_to_file("res://scenes/gui/character_select.tscn")
+	if Input.is_action_just_pressed("lock_2"):
+		get_tree().change_scene_to_file("res://scenes/gui/character_select.tscn")
 
 
 func _on_play_pressed():
-	#Will change this to character select scene
 	get_tree().change_scene_to_file("res://scenes/gui/character_select.tscn")

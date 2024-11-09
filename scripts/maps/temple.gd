@@ -4,6 +4,9 @@ extends Node2D
 var player1
 var player2
 
+#Define the bool to determine whether the game is over
+var game_over = false
+
 #Preload hon to be instantiated
 @onready var scene_hon = preload("res://scenes/characters/hon.tscn")
 @onready var scene_zhin = preload("res://scenes/characters/zhin.tscn")
@@ -18,7 +21,14 @@ var player2
 @onready var player_1_health = $CanvasLayer/player_1_health
 @onready var player_2_health = $CanvasLayer/player_2_health
 
+#Reference the timer and the timer display
+@onready var time_display = $CanvasLayer/time_display
+@onready var timer = $CanvasLayer/timer
+
 func _ready():
+	#Start the timer
+	timer.start()
+	
 	#Set both players' health to 100
 	global.player_1_health = 100
 	global.player_2_health = 100
@@ -76,3 +86,34 @@ func _process(delta):
 	else:
 		player1.is_flipped = 1
 		player2.is_flipped = -1
+	
+	#Manage the wins/losses
+	if global.player_1_health <= 0:
+		game_over = true
+		time_display.text = "K.O."
+		global.player_2_wins += 1
+	elif global.player_2_health <= 0:
+		game_over = true
+		time_display.text = "K.O."
+		global.player_1_wins += 1
+	elif timer.time_left <= 0:
+		game_over = true
+		time_display.text = " --"
+		if global.player_1_health > global.player_2_health:
+			global.player_1_wins += 1
+		elif global.player_2_health > global.player_1_health:
+			global.player_2_wins += 1
+		else:
+			pass #no one wins
+	
+	#Display the timer
+	if !game_over:
+		var time_left = timer.time_left
+		var minutes = floor(time_left / 60)
+		var seconds = int(time_left) % 60
+		if seconds > 9:
+			time_display.text = str(minutes,":", seconds)
+		else:
+			time_display.text = str(minutes,":0", seconds)
+	else:
+		timer.stop()
