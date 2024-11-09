@@ -88,6 +88,7 @@ func _process(delta):
 		player2.is_flipped = -1
 	
 	#Manage the wins/losses
+	#Add a K.O. player animation and text and stuff. Also reset the round and more
 	if global.player_1_health <= 0:
 		game_over = true
 		time_display.text = "K.O."

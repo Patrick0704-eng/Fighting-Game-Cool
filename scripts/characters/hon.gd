@@ -35,9 +35,14 @@ var is_jump_high = false
 var is_jump_low = false
 var is_hit = false
 var air_hit = false
+#is_blocking 1 = false, 0.5 = true
+var is_blocking = 1
 
 #Define a variable to see whether or not the player is flipped (1 = false, -1 = true)
 var is_flipped = 1
+
+#Set the blocking animation to standing by default
+var animation_block = "stand_block"
 
 #Set the idle animation to standing by default
 var animation_idle = "stand_idle"
@@ -84,8 +89,17 @@ func _physics_process(delta):
 	else:
 		animation_frames.flip_h = false
 		attack_range.position.x = 40
+	#Check if the player can block, then plays the animation and sets the is_blocking variable to true
+	if Input.is_action_pressed(block) and !is_attacking:
+		is_attacking = true
+		is_blocking = 0.5
+		animation_player.play(animation_block)
+	#Unblock if the player releases the block key
+	if Input.is_action_just_released(block) and is_blocking == 0.5:
+		is_attacking = false
+		is_blocking = 1
 	#Check if the player can fly kick, then plays the animation and sets fly kick variables to true
-	if Input.is_action_just_pressed(high) and !is_on_floor() and !is_attacking:
+	elif Input.is_action_just_pressed(high) and !is_on_floor() and !is_attacking:
 		is_attacking = true
 		is_jump_high = true
 		animation_player.play("jump_high")
@@ -192,10 +206,17 @@ func _physics_process(delta):
 		is_crouching = true
 		speed = crouching_speed
 		animation_idle = "crouch_idle"
-	else:
+		animation_block = "crouch_block"
+	elif is_on_floor() and !is_attacking:
 		is_crouching = false
 		speed = standing_speed
 		animation_idle = "stand_idle"
+		animation_block = "stand_block"
+	elif !is_on_floor() and !is_attacking:
+		is_crouching = false
+		speed = standing_speed
+		animation_idle = "stand_idle"
+		animation_block = "jump_block"
 	
 	#Checks if player wants to jump and can jump, then jumps
 	if Input.is_action_just_pressed(up) and is_on_floor() and !is_crouching and !is_attacking:
@@ -222,12 +243,14 @@ func _physics_process(delta):
 #Make the player stunned, take a certain amount of damage and knocback based on what numbers the attack sends
 func _hit(damage, time, knockback):
 	if player == 1:
-		global.player_1_health -= damage
+		global.player_1_health -= damage * is_blocking
 	elif player == 2:
-		global.player_2_health -= damage
+		global.player_2_health -= damage * is_blocking
 	#Play stun animation when it is added
 	is_hit = true
-	velocity = knockback
+	#velocity = knockback * is_blocking
+	if is_blocking == 1:
+		velocity = knockback
 	is_jump_high = false
 	is_jump_low = false
 	is_hit = true
