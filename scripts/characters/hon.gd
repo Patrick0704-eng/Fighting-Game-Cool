@@ -246,11 +246,12 @@ func _hit(damage, time, knockback):
 		global.player_1_health -= damage * is_blocking
 	elif player == 2:
 		global.player_2_health -= damage * is_blocking
-	#Play stun animation when it is added
 	is_hit = true
 	#velocity = knockback * is_blocking
 	if is_blocking == 1:
 		velocity = knockback
+		if !is_on_floor():
+			animation_player.play("stun")
 	is_jump_high = false
 	is_jump_low = false
 	is_hit = true
