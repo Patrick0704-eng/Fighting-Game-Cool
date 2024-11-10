@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://41kfs8xj4fu2"]
+[gd_scene load_steps=6 format=3 uid="uid://41kfs8xj4fu2"]
 
 [ext_resource type="Script" path="res://scripts/gui/main_menu.gd" id="1_2q5qk"]
 [ext_resource type="Texture2D" uid="uid://caajwwc2ooqid" path="res://assets/gui/main_menu/buttons/play.png" id="2_jwfth"]
+[ext_resource type="Texture2D" uid="uid://d0eepta8amkpy" path="res://assets/gui/main_menu/background_art/background.png" id="2_kfeq4"]
+[ext_resource type="Texture2D" uid="uid://rf8621lha2xl" path="res://assets/gui/main_menu/buttons/settings.png" id="4_qvjnq"]
+[ext_resource type="Texture2D" uid="uid://efxp273w88ts" path="res://assets/gui/main_menu/buttons/quit.png" id="4_w5alm"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -12,10 +15,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2q5qk")
 
-[node name="play" type="TextureButton" parent="."]
+[node name="background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.07251, 1.05236)
+texture = ExtResource("2_kfeq4")
+stretch_mode = 1
+
+[node name="play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 787.0
+offset_right = 133.0
+offset_bottom = 851.0
+scale = Vector2(1.44, 1.44)
 texture_normal = ExtResource("2_jwfth")
 
+[node name="settings" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 884.0
+offset_right = 133.0
+offset_bottom = 948.0
+scale = Vector2(1.44, 1.44)
+texture_normal = ExtResource("4_qvjnq")
+
+[node name="quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 981.0
+offset_right = 133.0
+offset_bottom = 1045.0
+scale = Vector2(1.44, 1.44001)
+texture_normal = ExtResource("4_w5alm")
+
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
