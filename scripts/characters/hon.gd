@@ -89,13 +89,16 @@ func _physics_process(delta):
 	else:
 		animation_frames.flip_h = false
 		attack_range.position.x = 40
+	#Play the sun animation if the player is hit
+	if is_hit:
+		animation_player.play("stun")
 	#Check if the player can block, then plays the animation and sets the is_blocking variable to true
-	if Input.is_action_pressed(block) and !is_attacking:
+	elif Input.is_action_pressed(block) and !is_attacking:
 		is_attacking = true
 		is_blocking = 0.5
 		animation_player.play(animation_block)
 	#Unblock if the player releases the block key
-	if Input.is_action_just_released(block) and is_blocking == 0.5:
+	elif Input.is_action_just_released(block) and is_blocking == 0.5:
 		is_attacking = false
 		is_blocking = 1
 	#Check if the player can fly kick, then plays the animation and sets fly kick variables to true
@@ -246,15 +249,13 @@ func _hit(damage, time, knockback):
 		global.player_1_health -= damage * is_blocking
 	elif player == 2:
 		global.player_2_health -= damage * is_blocking
-	is_hit = true
 	#velocity = knockback * is_blocking
 	if is_blocking == 1:
 		velocity = knockback
-		if !is_on_floor():
-			animation_player.play("stun")
+		if knockback.y < 0:
+			is_hit = true
 	is_jump_high = false
 	is_jump_low = false
-	is_hit = true
 	is_attacking = true
 
 #Save the body that enters the area as a variable if it is in the group "player"
