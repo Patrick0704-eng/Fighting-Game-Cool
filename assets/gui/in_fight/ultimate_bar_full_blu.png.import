@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s8oqcagv7k61"
-path="res://.godot/imported/ultimate_bar_background.png-4facc31287b739cb60a09c6b59d0d0f2.ctex"
+uid="uid://b3bxj5djmkdis"
+path="res://.godot/imported/ultimate_bar_full_blu.png-34a39bf7462d4dda604e096b229c9ea6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/in_fight/ultimate_bar_background.png"
-dest_files=["res://.godot/imported/ultimate_bar_background.png-4facc31287b739cb60a09c6b59d0d0f2.ctex"]
+source_file="res://assets/gui/in_fight/ultimate_bar_full_blu.png"
+dest_files=["res://.godot/imported/ultimate_bar_full_blu.png-34a39bf7462d4dda604e096b229c9ea6.ctex"]
 
 [params]
 
