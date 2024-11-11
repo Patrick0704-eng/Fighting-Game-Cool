@@ -20,8 +20,9 @@ distance = -243.0
 script = ExtResource("1_7fuft")
 
 [node name="background" type="TextureRect" parent="."]
+offset_top = -41.0
 offset_right = 648.0
-offset_bottom = 360.0
+offset_bottom = 319.0
 texture = ExtResource("2_t4y05")
 
 [node name="stage_collision" type="StaticBody2D" parent="."]
@@ -29,7 +30,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="north" type="CollisionShape2D" parent="stage_collision"]
-position = Vector2(324, 0)
+position = Vector2(324, -41)
 rotation = -3.14159
 shape = SubResource("WorldBoundaryShape2D_eu8xy")
 
@@ -48,7 +49,7 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_ts45b")
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2(324, 180)
+position = Vector2(324, 139)
 zoom = Vector2(5, 5)
 limit_left = 0
 limit_right = 648
