@@ -20,8 +20,9 @@ distance = -243.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ts45b"]
 
-[node name="temple" type="Node2D"]
+[node name="temple" type="Node2D" node_paths=PackedStringArray("player_1_health")]
 script = ExtResource("1_7fuft")
+player_1_health = NodePath("CanvasLayer/resizer/player_1_health")
 
 [node name="background" type="TextureRect" parent="."]
 offset_top = -41.0
@@ -66,10 +67,18 @@ offset = Vector2(962, 520)
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 962, 520)
 
-[node name="health_background" type="Sprite2D" parent="CanvasLayer"]
+[node name="resizer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_background" type="Sprite2D" parent="CanvasLayer/resizer"]
 texture = ExtResource("3_vvts7")
 
-[node name="player_1_health" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="player_1_health" type="TextureProgressBar" parent="CanvasLayer/resizer"]
 offset_left = -306.0
 offset_top = -163.0
 offset_right = -35.0
@@ -77,16 +86,16 @@ offset_bottom = -136.0
 value = 100.0
 texture_progress = ExtResource("4_syodn")
 
-[node name="player_2_health" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="player_2_health" type="TextureProgressBar" parent="CanvasLayer/resizer"]
 offset_left = 36.0
 offset_top = -163.0
-offset_right = 305.0
+offset_right = 306.0
 offset_bottom = -123.0
 value = 100.0
 fill_mode = 1
 texture_progress = ExtResource("5_ndgth")
 
-[node name="time_display" type="Label" parent="CanvasLayer"]
+[node name="time_display" type="Label" parent="CanvasLayer/resizer"]
 offset_left = -20.6667
 offset_top = -158.333
 offset_right = 0.333336
@@ -96,23 +105,27 @@ theme_override_fonts/font = ExtResource("6_db2cg")
 theme_override_font_sizes/font_size = 8
 text = "2:00"
 
-[node name="timer" type="Timer" parent="CanvasLayer"]
+[node name="timer" type="Timer" parent="CanvasLayer/resizer"]
 wait_time = 120.0
 one_shot = true
 
-[node name="player_1_ult" type="TextureProgressBar" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="player_1_ult" type="TextureProgressBar" parent="CanvasLayer/resizer"]
+offset_left = -320.667
+offset_top = -173.0
+offset_right = 327.333
+offset_bottom = 187.0
+value = 50.0
 fill_mode = 4
 texture_under = ExtResource("7_mxike")
 texture_progress = ExtResource("8_uyotf")
+texture_progress_offset = Vector2(6, 301)
 
-[node name="player_2_ult" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = -326.666
-offset_top = -173.333
-offset_right = 321.334
-offset_bottom = 186.667
-value = 100.0
+[node name="player_2_ult" type="TextureProgressBar" parent="CanvasLayer/resizer"]
+offset_left = -328.667
+offset_top = -173.0
+offset_right = 319.333
+offset_bottom = 187.0
+value = 50.0
 fill_mode = 4
 texture_under = ExtResource("9_f2oef")
 texture_progress = ExtResource("10_afug3")

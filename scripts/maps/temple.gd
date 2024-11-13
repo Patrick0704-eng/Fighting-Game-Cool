@@ -18,12 +18,12 @@ var game_over = false
 @onready var camera = $camera
 
 #Reference the health bars
-@onready var player_1_health = $CanvasLayer/player_1_health
-@onready var player_2_health = $CanvasLayer/player_2_health
+@export var player_1_health: TextureProgressBar
+@onready var player_2_health = $CanvasLayer/resizer/player_2_health
 
 #Reference the timer and the timer display
-@onready var time_display = $CanvasLayer/time_display
-@onready var timer = $CanvasLayer/timer
+@onready var time_display = $CanvasLayer/resizer/time_display
+@onready var timer = $CanvasLayer/resizer/timer
 
 func _ready():
 	#Start the timer
