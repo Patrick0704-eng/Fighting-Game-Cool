@@ -248,8 +248,20 @@ func _physics_process(delta):
 func _hit(damage, time, knockback):
 	if player == 1:
 		global.player_1_health -= damage * is_blocking
+		if global.player_2_ult >= 100:
+			global.player_2_ult = 100
+		elif global.player_2_ult + damage * 3 >= 100:
+			global.player_2_ult = 100
+		else:
+			global.player_2_ult += damage * 3
 	elif player == 2:
 		global.player_2_health -= damage * is_blocking
+		if global.player_1_ult >= 100:
+			global.player_1_ult = 100
+		elif global.player_1_ult + damage * 3 >= 100:
+			global.player_1_ult = 100
+		else:
+			global.player_1_ult += damage * 3
 	#velocity = knockback * is_blocking
 	if is_blocking == 1:
 		velocity = knockback

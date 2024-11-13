@@ -21,6 +21,14 @@ var game_over = false
 @export var player_1_health: TextureProgressBar
 @onready var player_2_health = $CanvasLayer/resizer/player_2_health
 
+#Reference the ultimate bars
+@onready var player_1_ult = $CanvasLayer/resizer/player_1_ult
+@onready var player_2_ult = $CanvasLayer/resizer/player_2_ult
+
+#Reference the ultimate percentage label
+@onready var player_1_ult_percentage = $CanvasLayer/resizer/player_1_ult_percentage
+@onready var player_2_ult_percentage = $CanvasLayer/resizer/player_2_ult_percentage
+
 #Reference the timer and the timer display
 @onready var time_display = $CanvasLayer/resizer/time_display
 @onready var timer = $CanvasLayer/resizer/timer
@@ -60,6 +68,20 @@ func _process(delta):
 	#Set the health bars to reflect each player's health
 	player_1_health.value = global.player_1_health
 	player_2_health.value = global.player_2_health
+	
+	#Set the ultimate bars to reflect each player's ult percentage
+	player_1_ult.value = global.player_1_ult
+	player_2_ult.value = global.player_2_ult
+	
+	#Set the ultimate percentage label to reflect each player's ult percentage
+	if global.player_1_ult != 100:
+		player_1_ult_percentage.text = str(global.player_1_ult, "%")
+	else:
+		player_1_ult_percentage.text = "ULT"
+	if global.player_2_ult != 100:
+		player_2_ult_percentage.text = str(global.player_2_ult, "%")
+	else:
+		player_2_ult_percentage.text = "ULT"
 	
 	#Set the camera's x position to the average x position of player 1 and player 2
 	camera.position.x = player1.position.x + player2.position.x + 328
