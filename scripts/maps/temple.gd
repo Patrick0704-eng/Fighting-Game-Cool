@@ -33,6 +33,9 @@ var game_over = false
 @onready var time_display = $CanvasLayer/resizer/time_display
 @onready var timer = $CanvasLayer/resizer/timer
 
+#Reference the pause menu scene
+@onready var pause_menu = $CanvasLayer/resizer/pause_menu
+
 func _ready():
 	#Start the timer
 	timer.start()
@@ -65,6 +68,11 @@ func _ready():
 
 
 func _process(delta):
+	#Open the pause menu and pause the game if esc is pressed
+	if Input.is_action_just_pressed("esc"):
+		pause_menu.show()
+		get_tree().paused = true
+	
 	#Set the health bars to reflect each player's health
 	player_1_health.value = global.player_1_health
 	player_2_health.value = global.player_2_health

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfe4480dgbxh8"]
+[gd_scene load_steps=18 format=3 uid="uid://cfe4480dgbxh8"]
 
 [ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
 [ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://k6fkmpvwwhxc" path="res://assets/gui/in_fight/ultimate_bar_background_blu.png" id="9_f2oef"]
 [ext_resource type="Texture2D" uid="uid://b3bxj5djmkdis" path="res://assets/gui/in_fight/ultimate_bar_full_blu.png" id="10_afug3"]
 [ext_resource type="Texture2D" uid="uid://djsy67l5rfbiv" path="res://assets/gui/in_fight/ultimate_bar_foreground_blu.png" id="11_yya05"]
+[ext_resource type="PackedScene" uid="uid://0f6kt1idtlvi" path="res://scenes/gui/pause_menu.tscn" id="13_pvp8t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eu8xy"]
 
@@ -81,6 +82,7 @@ grow_vertical = 2
 texture = ExtResource("3_vvts7")
 
 [node name="player_1_health" type="TextureProgressBar" parent="CanvasLayer/resizer"]
+layout_mode = 0
 offset_left = -306.0
 offset_top = -163.0
 offset_right = -35.0
@@ -89,6 +91,7 @@ value = 100.0
 texture_progress = ExtResource("4_syodn")
 
 [node name="player_2_health" type="TextureProgressBar" parent="CanvasLayer/resizer"]
+layout_mode = 0
 offset_left = 36.0
 offset_top = -163.0
 offset_right = 306.0
@@ -98,6 +101,7 @@ fill_mode = 1
 texture_progress = ExtResource("5_ndgth")
 
 [node name="time_display" type="Label" parent="CanvasLayer/resizer"]
+layout_mode = 0
 offset_left = -20.6667
 offset_top = -158.333
 offset_right = 0.333336
@@ -112,6 +116,7 @@ wait_time = 120.0
 one_shot = true
 
 [node name="player_1_ult" type="TextureProgressBar" parent="CanvasLayer/resizer"]
+layout_mode = 0
 offset_left = -320.667
 offset_top = -173.0
 offset_right = 327.333
@@ -123,6 +128,7 @@ texture_progress = ExtResource("8_uyotf")
 texture_progress_offset = Vector2(6, 301)
 
 [node name="player_2_ult" type="TextureProgressBar" parent="CanvasLayer/resizer"]
+layout_mode = 0
 offset_left = -328.667
 offset_top = -173.0
 offset_right = 319.333
@@ -150,3 +156,16 @@ offset_right = 310.0
 offset_bottom = 169.333
 theme_override_fonts/font = ExtResource("6_db2cg")
 text = "0%"
+
+[node name="pause_menu" parent="CanvasLayer/resizer" instance=ExtResource("13_pvp8t")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.278
+anchor_top = -0.267
+anchor_right = 0.276
+anchor_bottom = 0.287
+offset_left = 0.256042
+offset_top = 0.0160065
+offset_right = 0.256042
+offset_bottom = 0.0240021
