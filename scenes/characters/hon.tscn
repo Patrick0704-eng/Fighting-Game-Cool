@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://dp437v6nkr7ce"]
+[gd_scene load_steps=97 format=3 uid="uid://dp437v6nkr7ce"]
 
 [ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
 [ext_resource type="Texture2D" uid="uid://sb0dieqd0d7w" path="res://assets/characters/hon/normal/crouch_idle.png" id="2_cnn5w"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://qunjuogam3lf" path="res://assets/characters/hon/normal/jump_block.png" id="8_fttlb"]
 [ext_resource type="Texture2D" uid="uid://uvvdk4nw8l7a" path="res://assets/characters/hon/normal/block.png" id="11_mshv2"]
 [ext_resource type="Texture2D" uid="uid://cx5rn4ncp6qcd" path="res://assets/characters/hon/normal/stunned.png" id="16_t0yjf"]
+[ext_resource type="Texture2D" uid="uid://dt0pf1ue1o4mh" path="res://assets/characters/hon/normal/ultimate_damage.png" id="17_tq7ni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5haf"]
 size = Vector2(46, 63)
@@ -238,6 +239,22 @@ region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hufvv"]
 atlas = ExtResource("16_t0yjf")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nulqx"]
+atlas = ExtResource("17_tq7ni")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br3me"]
+atlas = ExtResource("17_tq7ni")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gywvl"]
+atlas = ExtResource("17_tq7ni")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v61mp"]
+atlas = ExtResource("17_tq7ni")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2dgku"]
@@ -481,6 +498,23 @@ animations = [{
 "loop": true,
 "name": &"stun",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nulqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br3me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gywvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v61mp")
+}],
+"loop": true,
+"name": &"ultimate",
+"speed": 3.5
 }]
 
 [sub_resource type="Animation" id="Animation_ksgss"]
