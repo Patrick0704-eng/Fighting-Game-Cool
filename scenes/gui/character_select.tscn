@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cofufxnhhngdq"]
+[gd_scene load_steps=7 format=3 uid="uid://cofufxnhhngdq"]
 
 [ext_resource type="Texture2D" uid="uid://begwloepqmgrk" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior_Portrait.png" id="1_tpsvn"]
 [ext_resource type="Script" path="res://scripts/gui/character_select.gd" id="1_xvs0u"]
 [ext_resource type="Texture2D" uid="uid://0vq1c4ncdk1q" path="res://assets/characters/hon/normal/reference.png" id="3_ow0ew"]
 [ext_resource type="Texture2D" uid="uid://dfbv0onw0yn5i" path="res://assets/characters/p1_select.png" id="4_h86y1"]
+[ext_resource type="Texture2D" uid="uid://44hymgx6hrns" path="res://assets/gui/character_select_menu/dual_select.png" id="4_hy81w"]
 [ext_resource type="Texture2D" uid="uid://d3uromcspbgrn" path="res://assets/characters/p2_select.png" id="5_my1bj"]
 
 [node name="character_select" type="Control"]
@@ -25,8 +26,6 @@ z_index = 1
 position = Vector2(100, 32)
 texture = ExtResource("5_my1bj")
 
-[node name="dual_select" type="Sprite2D" parent="."]
-
 [node name="hon" type="Sprite2D" parent="."]
 position = Vector2(100, 32)
 texture = ExtResource("3_ow0ew")
@@ -34,3 +33,6 @@ texture = ExtResource("3_ow0ew")
 [node name="zhin" type="Sprite2D" parent="."]
 position = Vector2(164, 32)
 texture = ExtResource("1_tpsvn")
+
+[node name="dual_select" type="Sprite2D" parent="."]
+texture = ExtResource("4_hy81w")

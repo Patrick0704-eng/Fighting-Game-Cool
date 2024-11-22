@@ -18,4 +18,5 @@ func _on_resume_pressed():
 
 
 func _on_return_pressed():
+	hide()
 	get_tree().change_scene_to_file(main_menu)

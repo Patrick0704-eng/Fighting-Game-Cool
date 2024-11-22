@@ -11,6 +11,9 @@ var game_over = false
 @onready var scene_hon = preload("res://scenes/characters/hon.tscn")
 @onready var scene_zhin = preload("res://scenes/characters/zhin.tscn")
 
+#Reference the temple scene
+@onready var scene_temple = "res://scenes/maps/temple.tscn"
+
 #Define the parent node of the players
 @onready var players = $players
 
@@ -136,6 +139,9 @@ func _process(delta):
 			global.player_2_wins += 1
 		else:
 			pass #no one wins
+	
+	if game_over:
+		get_tree().change_scene_to_file(scene_temple)
 	
 	#Display the timer
 	if !game_over:
