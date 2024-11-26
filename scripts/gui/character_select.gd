@@ -62,8 +62,9 @@ func _process(delta):
 		cursor_1.hide()
 		if global.player_1_character == 1 and global.player_2_character == 2:
 			cursor_2.show()
+			cursor_2.position = Vector2(164,32)
 			locked_1_unlocked_2.hide()
-			player_1_lock.position == Vector2(100,32)
+			player_1_lock.position = Vector2(100,32)
 			player_1_lock.show()
 		if global.player_1_character == 1 and global.player_2_character == 1:
 			player_1_lock.hide()
@@ -85,16 +86,18 @@ func _process(delta):
 		cursor_2.hide()
 		if global.player_2_character == 1 and global.player_1_character == 2:
 			cursor_1.show()
+			cursor_1.position = Vector2(164,32)
 			locked_2_unlocked_1.hide()
 			player_2_lock.position = Vector2(100,32)
 			player_2_lock.show()
 		if global.player_2_character == 1 and global.player_1_character == 1:
-			cursor_1.hide()
 			player_2_lock.hide()
+			cursor_1.hide()
 			locked_2_unlocked_1.position = Vector2(100,32)
 			locked_2_unlocked_1.show()
 		if global.player_2_character == 2 and global.player_1_character == 1:
 			cursor_1.show()
+			cursor_1.position = Vector2(100,32)
 			locked_2_unlocked_1.hide()
 			player_2_lock.position = Vector2(164,32)
 			player_2_lock.show()
