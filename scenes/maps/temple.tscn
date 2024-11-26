@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfe4480dgbxh8"]
+[gd_scene load_steps=25 format=3 uid="uid://cfe4480dgbxh8"]
 
 [ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
 [ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
@@ -13,6 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://b3bxj5djmkdis" path="res://assets/gui/in_fight/ultimate_bar_full_blu.png" id="10_afug3"]
 [ext_resource type="Texture2D" uid="uid://djsy67l5rfbiv" path="res://assets/gui/in_fight/ultimate_bar_foreground_blu.png" id="11_yya05"]
 [ext_resource type="PackedScene" uid="uid://0f6kt1idtlvi" path="res://scenes/gui/pause_menu.tscn" id="13_pvp8t"]
+[ext_resource type="AudioStream" uid="uid://dl6lm7nmsmlb2" path="res://assets/voicelines/321_fight.mp3" id="14_jlqvl"]
+[ext_resource type="AudioStream" uid="uid://dba5m5edwcfvc" path="res://assets/voicelines/Player_1_wins.mp3" id="15_2xg71"]
+[ext_resource type="AudioStream" uid="uid://dxp4y0yu7sldr" path="res://assets/voicelines/Player_2_wins.mp3" id="16_65hgg"]
+[ext_resource type="AudioStream" uid="uid://bxeu2ti5xiuro" path="res://assets/voicelines/Hon_loss.mp3" id="17_q1byh"]
+[ext_resource type="AudioStream" uid="uid://chb8h27m2rt54" path="res://assets/voicelines/Hon_win.mp3" id="18_5nq5s"]
+[ext_resource type="AudioStream" uid="uid://c3157ga5blj4g" path="res://assets/voicelines/Hon_start.mp3" id="19_jxdlh"]
+[ext_resource type="AudioStream" uid="uid://bubxry0gttk5d" path="res://assets/voicelines/Jo.mp3" id="20_g2avs"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eu8xy"]
 
@@ -169,3 +176,24 @@ offset_left = 0.256042
 offset_top = 0.0160065
 offset_right = 0.256042
 offset_bottom = 0.0240021
+
+[node name="321_fight" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_jlqvl")
+
+[node name="player_1_win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_2xg71")
+
+[node name="player_2_win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_65hgg")
+
+[node name="hon_loss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_q1byh")
+
+[node name="hon_win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_5nq5s")
+
+[node name="hon_start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_jxdlh")
+
+[node name="ko" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_g2avs")

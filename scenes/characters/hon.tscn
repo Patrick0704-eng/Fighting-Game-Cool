@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://dp437v6nkr7ce"]
+[gd_scene load_steps=102 format=3 uid="uid://dp437v6nkr7ce"]
 
 [ext_resource type="Script" path="res://scripts/characters/hon.gd" id="1_ipo3d"]
 [ext_resource type="Texture2D" uid="uid://sb0dieqd0d7w" path="res://assets/characters/hon/normal/crouch_idle.png" id="2_cnn5w"]
@@ -17,6 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://uvvdk4nw8l7a" path="res://assets/characters/hon/normal/block.png" id="11_mshv2"]
 [ext_resource type="Texture2D" uid="uid://cx5rn4ncp6qcd" path="res://assets/characters/hon/normal/stunned.png" id="16_t0yjf"]
 [ext_resource type="Texture2D" uid="uid://dt0pf1ue1o4mh" path="res://assets/characters/hon/normal/ultimate_damage.png" id="17_tq7ni"]
+[ext_resource type="AudioStream" uid="uid://bxgn0605rm1wb" path="res://assets/voicelines/Punch_1.mp3" id="18_kcjnk"]
+[ext_resource type="AudioStream" uid="uid://qxp00esng2cs" path="res://assets/voicelines/Punch_2.mp3" id="19_nbck2"]
+[ext_resource type="AudioStream" uid="uid://b7g6swgluxt08" path="res://assets/voicelines/Fly_kick.mp3" id="20_1mtpc"]
+[ext_resource type="AudioStream" uid="uid://ba4nkhr07ooy0" path="res://assets/voicelines/Get_hit.mp3" id="21_rvnfs"]
+[ext_resource type="AudioStream" uid="uid://br01hx8bt662j" path="res://assets/voicelines/Get_punched_low.mp3" id="22_lf1gh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5haf"]
 size = Vector2(46, 63)
@@ -1531,6 +1536,21 @@ collision_mask = 2
 
 [node name="attack_hitbox" type="CollisionShape2D" parent="attack_range"]
 shape = SubResource("RectangleShape2D_uaq02")
+
+[node name="punch_1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_kcjnk")
+
+[node name="high_punch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_nbck2")
+
+[node name="fly_kick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_1mtpc")
+
+[node name="get_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_rvnfs")
+
+[node name="get_hit_low" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_lf1gh")
 
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]

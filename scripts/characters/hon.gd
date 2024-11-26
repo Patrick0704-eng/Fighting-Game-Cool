@@ -41,6 +41,13 @@ var is_blocking = 1
 #Define a variable to see whether or not the player is flipped (1 = false, -1 = true)
 var is_flipped = 1
 
+#checks if each player has said their voicelines
+var player_1_voiceline_start = false
+var player_2_voiceline_start = false
+var player_1_voiceline_end = false
+var player_2_voiceline_end = false
+
+
 #Set the blocking animation to standing by default
 var animation_block = "stand_block"
 
@@ -49,6 +56,9 @@ var animation_idle = "stand_idle"
 
 #Define the variable to store the body that enters attack_range
 var attack_range_body = null
+
+#checks if ball punch
+var ball_punch = false
 
 #Reference hon's hitbox
 @onready var hit_box = $hit_box
@@ -62,6 +72,23 @@ var attack_range_body = null
 
 #Reference the hon character body
 @onready var hon_body = $"."
+
+#reference the hit sounds
+@onready var punch_1 = $punch_1
+@onready var high_punch = $high_punch
+@onready var fly_kick = $fly_kick
+@onready var get_hit = $get_hit
+@onready var get_hit_low = $get_hit_low
+
+#defines audio
+@onready var fight_countdown = $"321_fight"
+@onready var player_1_win = $player_1_win
+@onready var player_2_win = $player_2_win
+@onready var hon_loss = $hon_loss
+@onready var hon_win = $hon_win
+@onready var hon_start = $hon_start
+@onready var ko = $ko
+
 
 func _ready():
 	#Set the keybinds to player2's keybinds if player == 2
@@ -92,6 +119,11 @@ func _physics_process(delta):
 	#Play the sun animation if the player is hit
 	if is_hit:
 		animation_player.play("stun")
+		if ball_punch:
+			get_hit_low.play()
+			ball_punch = false
+		else:
+			get_hit.play()
 	#Check if the player can block, then plays the animation and sets the is_blocking variable to true
 	elif Input.is_action_pressed(block) and !is_attacking:
 		is_attacking = true
@@ -106,15 +138,18 @@ func _physics_process(delta):
 		is_attacking = true
 		is_jump_high = true
 		animation_player.play("jump_high")
+		fly_kick.play()
 	#Check if the player can body slam, then plays the animation and sets body slam variables to true
 	elif Input.is_action_just_pressed(low) and !is_on_floor() and !is_attacking:
 		is_attacking = true
 		is_jump_low = true
 		animation_player.play("jump_low")
+		high_punch.play()
 	#Check if player is trying and can standing high attack, then attacks
 	elif !is_crouching and Input.is_action_just_pressed(high) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("stand_high")
+		punch_1.play()
 		await get_tree().create_timer(0.2).timeout
 		if !is_hit:
 			if attack_range_body != null:
@@ -125,6 +160,7 @@ func _physics_process(delta):
 	elif !is_crouching and Input.is_action_just_pressed(low) and is_on_floor() and !is_attacking:
 		is_attacking = true
 		animation_player.play("stand_low")
+		punch_1.play()
 		await get_tree().create_timer(0.2).timeout
 		if attack_range_body != null:
 			attack_range_body._hit(6, 0.7, Vector2(30*is_flipped, -350))
