@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cofufxnhhngdq"]
+[gd_scene load_steps=12 format=3 uid="uid://cofufxnhhngdq"]
 
 [ext_resource type="Texture2D" uid="uid://begwloepqmgrk" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior_Portrait.png" id="1_tpsvn"]
 [ext_resource type="Script" path="res://scripts/gui/character_select.gd" id="1_xvs0u"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dfbv0onw0yn5i" path="res://assets/characters/p1_select.png" id="4_h86y1"]
 [ext_resource type="Texture2D" uid="uid://44hymgx6hrns" path="res://assets/gui/character_select_menu/dual_select.png" id="4_hy81w"]
 [ext_resource type="Texture2D" uid="uid://d3uromcspbgrn" path="res://assets/characters/p2_select.png" id="5_my1bj"]
+[ext_resource type="Texture2D" uid="uid://dhrem8fmmyfu" path="res://assets/gui/character_select_menu/p1_locked.png" id="7_uamdr"]
+[ext_resource type="Texture2D" uid="uid://clhfok8gyihpp" path="res://assets/gui/character_select_menu/p2_locked.png" id="8_0svb2"]
+[ext_resource type="Texture2D" uid="uid://bnuah5cdn6uh5" path="res://assets/gui/character_select_menu/dual_p1_locked.png" id="9_m6r1x"]
+[ext_resource type="Texture2D" uid="uid://xv157rk3jv42" path="res://assets/gui/character_select_menu/dual_p2_locked.png" id="10_ollqc"]
+[ext_resource type="Texture2D" uid="uid://dxucys014fut5" path="res://assets/gui/character_select_menu/dual_locked.png" id="11_wqrtq"]
 
 [node name="character_select" type="Control"]
 layout_mode = 3
@@ -35,4 +40,25 @@ position = Vector2(164, 32)
 texture = ExtResource("1_tpsvn")
 
 [node name="dual_select" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("4_hy81w")
+
+[node name="locked_1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_uamdr")
+
+[node name="locked_2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_0svb2")
+
+[node name="locked_1_unlocked_2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_m6r1x")
+
+[node name="locked_2_unlocked_1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_ollqc")
+
+[node name="dual_locked" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_wqrtq")
