@@ -172,3 +172,5 @@ func _process(delta):
 			player_2_lock.position = Vector2(100,32)
 			player_1_lock.show()
 			player_2_lock.show()
+		await get_tree().create_timer(2.5).timeout
+		get_tree().change_scene_to_file("res://scenes/gui/map_select.tscn")
