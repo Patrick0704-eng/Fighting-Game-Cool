@@ -50,7 +50,5 @@ offset_bottom = 1045.0
 scale = Vector2(1.44, 1.44001)
 texture_normal = ExtResource("4_w5alm")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
