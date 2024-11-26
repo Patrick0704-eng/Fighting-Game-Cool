@@ -87,12 +87,12 @@ func _process(delta):
 			cursor_1.show()
 			locked_2_unlocked_1.hide()
 			player_2_lock.position = Vector2(100,32)
-			player_2_lock.show
+			player_2_lock.show()
 		if global.player_2_character == 1 and global.player_1_character == 1:
 			cursor_1.hide()
 			player_2_lock.hide()
 			locked_2_unlocked_1.position = Vector2(100,32)
-			locked_2_unlocked_1.show
+			locked_2_unlocked_1.show()
 		if global.player_2_character == 2 and global.player_1_character == 1:
 			cursor_1.show()
 			locked_2_unlocked_1.hide()
@@ -109,6 +109,8 @@ func _process(delta):
 			player_2_lock.hide()
 			locked_1_unlocked_2.hide()
 			locked_2_unlocked_1.hide()
+			cursor_1.hide()
+			cursor_2.hide()
 			if global.player_1_character == 1:
 				dual_locked.position = Vector2(100,32)
 				dual_locked.show()
@@ -118,13 +120,13 @@ func _process(delta):
 		if global.player_1_character == 1 and global.player_2_character ==2:
 			player_1_lock.position = Vector2(100,32)
 			player_2_lock.position = Vector2(164,32)
-			player_1_lock.show
-			player_2_lock.show
+			player_1_lock.show()
+			player_2_lock.show()
 		if global.player_1_character == 2 and global.player_2_character == 1:
 			player_1_lock.position = Vector2(164,32)
 			player_2_lock.position = Vector2(100,32)
-			player_1_lock.show
-			player_2_lock.show
+			player_1_lock.show()
+			player_2_lock.show()
 	if Input.is_action_just_pressed("lock_1"):
 		locked_1 = true
 	if Input.is_action_just_pressed("lock_2"):
@@ -144,5 +146,26 @@ func _process(delta):
 			if global.player_2_character > 1:
 				global.player_2_character -=1
 	if locked_1 and locked_2:
-		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://scenes/gui/map_select.tscn")
+		if global.player_1_character == global.player_2_character:
+			player_1_lock.hide()
+			player_2_lock.hide()
+			locked_1_unlocked_2.hide()
+			locked_2_unlocked_1.hide()
+			cursor_1.hide()
+			cursor_2.hide()
+			if global.player_1_character == 1:
+				dual_locked.position = Vector2(100,32)
+				dual_locked.show()
+			if global.player_1_character == 2:
+				dual_locked.position = Vector2(164,32)
+				dual_locked.show()
+		if global.player_1_character == 1 and global.player_2_character == 2:
+			player_1_lock.position = Vector2(100,32)
+			player_2_lock.position = Vector2(164,32)
+			player_1_lock.show()
+			player_2_lock.show()
+		if global.player_1_character == 2 and global.player_2_character == 1:
+			player_1_lock.position = Vector2(164,32)
+			player_2_lock.position = Vector2(100,32)
+			player_1_lock.show()
+			player_2_lock.show()
