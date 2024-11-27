@@ -7,6 +7,17 @@ var player2
 #Define the bool to determine whether the game is over
 var game_over = false
 
+#countdown timer
+var fight_counter = 3
+#defines audio
+@onready var fight_countdown = $"321_fight"
+@onready var player_1_win = $player_1_win
+@onready var player_2_win = $player_2_win
+@onready var ko = $ko
+@onready var hon_start = $hon_start
+@onready var hon_win = $hon_win
+@onready var hon_loss = $hon_loss
+
 #Preload hon to be instantiated
 @onready var scene_hon = preload("res://scenes/characters/hon.tscn")
 @onready var scene_zhin = preload("res://scenes/characters/zhin.tscn")
@@ -51,6 +62,7 @@ func _ready():
 		player1 = scene_hon.instantiate()
 		player1.position = Vector2(-50, 0)
 		player1.player = 1
+		player1.is_attacking = true
 		players.add_child(player1)
 	if global.player_1_character == 2:
 		player1 = scene_zhin.instantiate()
@@ -67,7 +79,9 @@ func _ready():
 		player2 = scene_zhin.instantiate()
 		player2.position = Vector2(50, 0)
 		player2.player = 2
+		player2.is_attacking = true
 		players.add_child(player2)
+	_pre_trash_talk()
 
 
 func _process(delta):
@@ -125,10 +139,12 @@ func _process(delta):
 	if global.player_1_health <= 0:
 		game_over = true
 		time_display.text = "K.O."
+		ko.play()
 		global.player_2_wins += 1
 	elif global.player_2_health <= 0:
 		game_over = true
 		time_display.text = "K.O."
+		ko.play()
 		global.player_1_wins += 1
 	elif timer.time_left <= 0:
 		game_over = true
@@ -141,7 +157,10 @@ func _process(delta):
 			pass #no one wins
 	
 	if game_over:
-		get_tree().change_scene_to_file(scene_temple)
+		player1.is_attacking = true
+		player2.is_attacking = true
+		if global.player_1_wins < 2 and global.player_2_wins < 2:
+			_start()
 	
 	#Display the timer
 	if !game_over:
@@ -154,3 +173,22 @@ func _process(delta):
 			time_display.text = str(minutes,":0", seconds)
 	else:
 		timer.stop()
+
+func _pre_trash_talk():
+	if global.player_1_character == 1:
+		hon_start.play()
+	if global.player_1_character == 2:
+		pass
+	await get_tree().create_timer(5).timeout
+	if global.player_2_character == 1:
+		hon_start.play()
+	if global.player_2_character == 2:
+		pass
+	await get_tree().create_timer(7).timeout
+	_start()
+func _start():
+	fight_countdown.play()
+	
+	if fight_counter == 0:
+		player1.is_attacking = false
+		player2.is_attacking = false
