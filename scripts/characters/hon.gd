@@ -267,7 +267,7 @@ func _physics_process(delta):
 	#Handles horizontal movement
 	#Go faster when moving towards enemy to give aggressor the advantage
 	var direction = Input.get_axis(left, right)
-	if direction and !is_attacking and !is_hit or direction and is_jump_high or direction and is_jump_low: 
+	if (direction and !is_hit) and (is_jump_high or is_jump_low or !is_attacking): 
 		velocity.x = direction * speed + is_flipped * 5
 		is_walking = true
 	elif !is_hit:
@@ -303,12 +303,10 @@ func _hit(damage, time, knockback):
 	#velocity = knockback * is_blocking
 	if is_blocking == 1:
 		velocity = knockback
-		if knockback.y < 0:
-			is_hit = true
-		else:
-			is_hit = true
+		if !knockback.y < 0:
 			balls = true
 			_balls()
+		is_hit = true
 	is_jump_high = false
 	is_jump_low = false
 	is_attacking = true
@@ -325,6 +323,7 @@ func _on_attack_range_body_exited(body):
 
 #Manage ball stun
 func _balls():
-	await get_tree().create_timer(1.4).timeout
+	await get_tree().create_timer(0.75).timeout
 	is_hit = false
 	balls = false
+	is_attacking = false
