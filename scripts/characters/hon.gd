@@ -37,6 +37,8 @@ var is_hit = false
 var air_hit = false
 #is_blocking 1 = false, 0.5 = true
 var is_blocking = 1
+#Balls
+var balls = false
 
 #Define a variable to see whether or not the player is flipped (1 = false, -1 = true)
 var is_flipped = 1
@@ -118,11 +120,11 @@ func _physics_process(delta):
 		attack_range.position.x = 40
 	#Play the sun animation if the player is hit
 	if is_hit:
-		animation_player.play("stun")
-		if ball_punch:
+		if balls:
+			animation_player.play("balls")
 			get_hit_low.play()
-			ball_punch = false
 		else:
+			animation_player.play("stun")
 			get_hit.play()
 	#Check if the player can block, then plays the animation and sets the is_blocking variable to true
 	elif Input.is_action_pressed(block) and !is_attacking:
@@ -273,7 +275,7 @@ func _physics_process(delta):
 		is_walking = false
 	
 	#Makes the player come out of stun if they touch the ground
-	if is_hit and velocity.y >= 0 and is_on_floor():
+	if is_hit and velocity.y >= 0 and is_on_floor() and !balls:
 		is_hit = false
 		is_attacking = false
 	
@@ -303,6 +305,10 @@ func _hit(damage, time, knockback):
 		velocity = knockback
 		if knockback.y < 0:
 			is_hit = true
+		else:
+			is_hit = true
+			balls = true
+			_balls()
 	is_jump_high = false
 	is_jump_low = false
 	is_attacking = true
@@ -316,3 +322,9 @@ func _on_attack_range_body_entered(body):
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("player"):
 		attack_range_body = null
+
+#Manage ball stun
+func _balls():
+	await get_tree().create_timer(1.4).timeout
+	is_hit = false
+	balls = false
