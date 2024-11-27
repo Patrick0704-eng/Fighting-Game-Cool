@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfmiwrpehwh2v"
+path="res://.godot/imported/Character Select Sound Effect-[AudioTrimmer.com].mp3-c798103aefa8d9b951d9668142044146.mp3str"
+
+[deps]
+
+source_file="res://assets/voicelines/Character Select Sound Effect-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Character Select Sound Effect-[AudioTrimmer.com].mp3-c798103aefa8d9b951d9668142044146.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

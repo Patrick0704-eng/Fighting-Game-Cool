@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cofufxnhhngdq"]
+[gd_scene load_steps=15 format=3 uid="uid://cofufxnhhngdq"]
 
 [ext_resource type="Texture2D" uid="uid://begwloepqmgrk" path="res://assets/characters/zhin/Fire_Warrior/Fire_Warrior_Portrait.png" id="1_tpsvn"]
 [ext_resource type="Script" path="res://scripts/gui/character_select.gd" id="1_xvs0u"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bnuah5cdn6uh5" path="res://assets/gui/character_select_menu/dual_p1_locked.png" id="9_m6r1x"]
 [ext_resource type="Texture2D" uid="uid://xv157rk3jv42" path="res://assets/gui/character_select_menu/dual_p2_locked.png" id="10_ollqc"]
 [ext_resource type="Texture2D" uid="uid://dxucys014fut5" path="res://assets/gui/character_select_menu/dual_locked.png" id="11_wqrtq"]
+[ext_resource type="AudioStream" uid="uid://bkmufs5o8s4a7" path="res://assets/voicelines/retro-select-236670.mp3" id="12_jvb4q"]
+[ext_resource type="AudioStream" uid="uid://cnh4y4rf7xxrn" path="res://assets/voicelines/Super Smash Bros. Melee - Announcer_ Choose Your Character.mp3" id="13_7oue7"]
+[ext_resource type="AudioStream" uid="uid://cfmiwrpehwh2v" path="res://assets/voicelines/Character Select Sound Effect-[AudioTrimmer.com].mp3" id="13_tn5eh"]
 
 [node name="character_select" type="Control"]
 layout_mode = 3
@@ -62,3 +65,22 @@ texture = ExtResource("10_ollqc")
 [node name="dual_locked" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("11_wqrtq")
+
+[node name="scroll_1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_jvb4q")
+
+[node name="scroll_2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_jvb4q")
+
+[node name="lockies_1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_tn5eh")
+
+[node name="lockies_2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_tn5eh")
+
+[node name="choose_character" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_7oue7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(135, 34)
+zoom = Vector2(5, 5)

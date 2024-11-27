@@ -13,11 +13,16 @@ extends Control
 @onready var dual_locked = $dual_locked
 @onready var locked_1_unlocked_2 = $locked_1_unlocked_2
 @onready var locked_2_unlocked_1 = $locked_2_unlocked_1
+@onready var scroll_1 = $scroll_1
+@onready var scroll_2 = $scroll_2
+@onready var lockies_1 = $lockies_1
+@onready var lockies_2 = $lockies_2
+@onready var choose = $choose_character
 var locked_1
 var locked_2
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	choose.play()
 #change from texture buttons
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -132,22 +137,28 @@ func _process(delta):
 			player_2_lock.show()
 	if Input.is_action_just_pressed("lock_1"):
 		locked_1 = true
+		lockies_1.play()
 	if Input.is_action_just_pressed("lock_2"):
 		locked_2 = true
+		lockies_1.play()
 	if !locked_1:
 		if Input.is_action_just_pressed("right1"):
 			if global.player_1_character < 2:
 				global.player_1_character += 1
+				scroll_1.play()
 		if Input.is_action_just_pressed("left1"):
 			if global.player_1_character > 1:
 				global.player_1_character -= 1
+				scroll_1.play()
 	if !locked_2:
 		if Input.is_action_just_pressed("right2"):
 			if global.player_2_character < 2:
 				global.player_2_character += 1
+				scroll_2.play()
 		if Input.is_action_just_pressed("left2"):
 			if global.player_2_character > 1:
 				global.player_2_character -=1
+				scroll_2.play()
 	if locked_1 and locked_2:
 		if global.player_1_character == global.player_2_character:
 			player_1_lock.hide()
