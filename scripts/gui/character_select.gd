@@ -135,14 +135,14 @@ func _process(delta):
 			player_2_lock.position = Vector2(100,32)
 			player_1_lock.show()
 			player_2_lock.show()
-	if Input.is_action_just_pressed("lock_1"):
+	if Input.is_action_just_pressed("lock_1") and !locked_1:
 		locked_1 = true
 		lockies_1.play()
 	if Input.is_action_just_pressed("lock_2"):
 		locked_2 = true
 		lockies_1.play()
 	if !locked_1:
-		if Input.is_action_just_pressed("right1"):
+		if Input.is_action_just_pressed("right1") and !locked_2:
 			if global.player_1_character < 2:
 				global.player_1_character += 1
 				scroll_1.play()
