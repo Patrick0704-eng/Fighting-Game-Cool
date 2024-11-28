@@ -120,7 +120,7 @@ func _physics_process(delta):
 	else:
 		animation_frames.flip_h = false
 		attack_range.position.x = 40
-	#Play the sun animation if the player is hit
+	#Play the stun animation if the player is hit
 	if is_hit:
 		if balls:
 			animation_player.play("balls")
