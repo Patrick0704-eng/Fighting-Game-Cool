@@ -123,11 +123,11 @@ func _physics_process(delta):
 	#Play the stun animation if the player is hit
 	if is_hit:
 		if balls:
-			animation_player.play("balls")
 			get_hit_low.play()
+			animation_player.play("balls")
 		else:
-			animation_player.play("stun")
 			get_hit.play()
+			animation_player.play("stun")
 	#Check if the player can block, then plays the animation and sets the is_blocking variable to true
 	elif Input.is_action_pressed(block) and !is_attacking:
 		is_attacking = true
