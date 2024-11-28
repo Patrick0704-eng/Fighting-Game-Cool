@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvuwsbblsr2ln"
+path="res://.godot/imported/Street Fighter II Ken Theme Original.mp3-c3756d5c95232a26934973357762c2a4.mp3str"
+
+[deps]
+
+source_file="res://assets/voicelines/Street Fighter II Ken Theme Original.mp3"
+dest_files=["res://.godot/imported/Street Fighter II Ken Theme Original.mp3-c3756d5c95232a26934973357762c2a4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
