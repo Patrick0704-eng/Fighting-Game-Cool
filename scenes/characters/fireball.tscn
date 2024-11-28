@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cn7oj40g3qo27"]
+
+[ext_resource type="Script" path="res://scripts/characters/fireball.gd" id="1_34d5v"]
+[ext_resource type="Texture2D" uid="uid://dtv5u0b5jmhqh" path="res://assets/characters/zhin/Fire_Warrior/FireBall-Sheet.png" id="2_yaxyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj62e"]
+atlas = ExtResource("2_yaxyp")
+region = Rect2(78, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wboxy"]
+atlas = ExtResource("2_yaxyp")
+region = Rect2(52, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfi6g"]
+atlas = ExtResource("2_yaxyp")
+region = Rect2(26, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs2jx"]
+atlas = ExtResource("2_yaxyp")
+region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcgt7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj62e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wboxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfi6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs2jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfi6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wboxy")
+}],
+"loop": true,
+"name": &"fire_ball",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0858y"]
+
+[node name="fireball" type="Area2D" groups=["fireball"]]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_34d5v")
+
+[node name="fireball_animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bcgt7")
+animation = &"fire_ball"
+autoplay = "fire_ball"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0858y")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
