@@ -194,7 +194,7 @@ func _pre_trash_talk():
 		hon_start.play()
 	if global.player_1_character == 2:
 		pass
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(7).timeout
 	if global.player_2_character == 1 and global.player_1_character > 1:
 		hon_start.play()
 	if global.player_2_character == 1 and global.player_1_character == 1:
