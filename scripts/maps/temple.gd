@@ -7,6 +7,9 @@ var player2
 #Define the bool to determine whether the game is over
 var game_over = false
 
+#Stops from double spawning characters in start func
+var birth = true
+
 #countdown timer
 var fight_counter = 3
 #defines audio
@@ -27,6 +30,8 @@ var fight_counter = 3
 
 #Define the parent node of the players
 @onready var players = $players
+
+@onready var countdown = $Label
 
 #Reference the camera variable
 @onready var camera = $camera
@@ -73,12 +78,14 @@ func _ready():
 		player1 = scene_zhin.instantiate()
 		player1.position = Vector2(-50, 0)
 		player1.player = 1
+		player1.is_attacking = true
 		players.add_child(player1)
 	#Check player2's selected character and instantiate them
 	if global.player_2_character == 1:
 		player2 = scene_hon.instantiate()
 		player2.position = Vector2(50, 0)
 		player2.player = 2
+		player2.is_attacking = true
 		players.add_child(player2)
 	if global.player_2_character == 2:
 		player2 = scene_zhin.instantiate()
@@ -90,6 +97,7 @@ func _ready():
 
 
 func _process(delta):
+	countdown.text = str(fight_counter)
 	#Open the pause menu and pause the game if esc is pressed
 	if Input.is_action_just_pressed("esc"):
 		pause_menu.show()
@@ -165,7 +173,9 @@ func _process(delta):
 		player1.is_attacking = true
 		player2.is_attacking = true
 		if global.player_1_wins < 2 and global.player_2_wins < 2:
+			birth = false
 			_start()
+			game_over = false
 	
 	#Display the timer
 	if !game_over:
@@ -194,6 +204,14 @@ func _pre_trash_talk():
 	await get_tree().create_timer(7).timeout
 	_start()
 func _start():
+	countdown.show()
+	if !birth:
+		player1.is_attacking = true
+		player1.position = Vector2 (50,0)
+		player2.is_attacking = true
+		player2.position = Vector2 (-50,0)
+		global.player_1_health = 100
+		global.player_2_health = 100
 	fight_countdown.play()
 	await get_tree().create_timer(0.8).timeout
 	fight_counter -=1
@@ -204,3 +222,6 @@ func _start():
 	if fight_counter == 0:
 		player1.is_attacking = false
 		player2.is_attacking = false
+		fight_counter = "go"
+		countdown.hide()
+		fight_counter = 3
