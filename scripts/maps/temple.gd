@@ -10,6 +10,9 @@ var game_over = false
 #Stops from double spawning characters in start func
 var birth = true
 
+var player_2_victory = false
+
+var player_1_victory = false
 #countdown timer
 var fight_counter = 3
 #defines audio
@@ -58,7 +61,11 @@ var fight_counter = 3
 #Reference song
 @onready var theme = $"fight theme"
 
+@onready var player_1_dub = $player_1_dub
+@onready var player_2_dub = $player_2_dub
 func _ready():
+	global.player_1_wins = 0
+	global.player_2_wins = 0
 	AudioPlayer.stop()
 	theme.play()
 	#Start the timer
@@ -177,6 +184,37 @@ func _process(delta):
 			_start()
 			game_over = false
 	
+	if global.player_1_wins == 2:
+		player_1_dub.show()
+		player_1_win.play()
+		await get_tree().create_timer(2).timeout
+		if global.player_1_character == 1:
+			hon_win.play()
+		if global.player_1_character == 2:
+			pass
+		await get_tree().create_timer(7).timeout
+		if global.player_2_character == 1:
+			hon_loss.play()
+		if global.player_2_character ==2:
+			pass
+		await get_tree().create_timer(7).timeout
+		get_tree().change_scene_to_file("res://scenes/gui/main_menu.tscn")
+	if global.player_2_wins == 2:
+		player_2_dub.show()
+		player_2_win.play()
+		await get_tree().create_timer(2).timeout
+		if global.player_2_character == 1:
+			hon_win.play()
+		if global.player_2_character == 2:
+			pass
+		await get_tree().create_timer(7).timeout
+		if global.player_1_character == 1:
+			hon_loss.play()
+		if global.player_1_character == 2:
+			pass
+		await get_tree().create_timer(7).timeout
+		get_tree().change_scene_to_file("res://scenes/gui/main_menu.tscn")
+		
 	#Display the timer
 	if !game_over:
 		var time_left = timer.time_left
@@ -207,9 +245,9 @@ func _start():
 	countdown.show()
 	if !birth:
 		player1.is_attacking = true
-		player1.position = Vector2 (50,0)
+		player1.position = Vector2 (-50,0)
 		player2.is_attacking = true
-		player2.position = Vector2 (-50,0)
+		player2.position = Vector2 (50,0)
 		global.player_1_health = 100
 		global.player_2_health = 100
 	fight_countdown.play()

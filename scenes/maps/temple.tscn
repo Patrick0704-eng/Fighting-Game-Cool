@@ -196,6 +196,7 @@ stream = ExtResource("18_5nq5s")
 
 [node name="hon_start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_jxdlh")
+volume_db = 11.886
 
 [node name="ko" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_g2avs")
@@ -211,6 +212,11 @@ offset_right = 343.0
 offset_bottom = 81.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_font_sizes/font_size = 5
 
 [node name="fight theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_s2yao")
+
+[node name="player_1_dub" type="Sprite2D" parent="."]
+
+[node name="player_2_dub" type="Sprite2D" parent="."]

@@ -84,3 +84,12 @@ stream = ExtResource("13_7oue7")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(135, 34)
 zoom = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 69.0
+offset_right = 240.0
+offset_bottom = 118.0
+text = "Player 1: Spacebar To Lock
+Player 2: Enter To Lock"
