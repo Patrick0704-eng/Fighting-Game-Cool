@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://chb8h27m2rt54" path="res://assets/voicelines/Hon_win.mp3" id="18_5nq5s"]
 [ext_resource type="AudioStream" uid="uid://c3157ga5blj4g" path="res://assets/voicelines/Hon_start.mp3" id="19_jxdlh"]
 [ext_resource type="AudioStream" uid="uid://bubxry0gttk5d" path="res://assets/voicelines/Jo.mp3" id="20_g2avs"]
-[ext_resource type="AudioStream" uid="uid://nqqe2uytut7l" path="res://assets/voicelines/Super Street Fighter II OST Guile Theme.mp3" id="21_kjyrf"]
+[ext_resource type="AudioStream" uid="uid://cvuwsbblsr2ln" path="res://assets/voicelines/Street Fighter II Ken Theme Original.mp3" id="21_s2yao"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eu8xy"]
 
@@ -180,6 +180,7 @@ offset_bottom = 0.0240021
 
 [node name="321_fight" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_jlqvl")
+volume_db = 10.133
 
 [node name="player_1_win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_2xg71")
@@ -198,14 +199,18 @@ stream = ExtResource("19_jxdlh")
 
 [node name="ko" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_g2avs")
+volume_db = 18.819
 
 [node name="hon_alternate_start" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 224.0
-offset_top = 138.0
-offset_right = 395.0
-offset_bottom = 214.0
+z_index = 1
+offset_left = 309.0
+offset_top = 58.0
+offset_right = 343.0
+offset_bottom = 81.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="fight theme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_kjyrf")
+stream = ExtResource("21_s2yao")
