@@ -1,8 +1,8 @@
 extends Control
-
+@onready var transition_fx = preload("res://assets/voicelines/Street Fighter 2 - Menu Theme Music  GAMER CAGOULER.mp3")
 
 func _ready():
-	pass
+	AudioPlayer._play_music_level()
 
 
 func _process(_delta):

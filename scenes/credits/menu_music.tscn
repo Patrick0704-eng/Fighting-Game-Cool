@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlowb1frd65cf"]
+
+[ext_resource type="AudioStream" uid="uid://bu4507gk1k11b" path="res://assets/voicelines/Street Fighter 2 - Menu Theme Music  GAMER CAGOULER.mp3" id="1_s4i2m"]
+[ext_resource type="Script" path="res://scripts/muesli/menu_music.gd" id="2_j0x3x"]
+
+[node name="menu_music" type="AudioStreamPlayer"]
+stream = ExtResource("1_s4i2m")
+script = ExtResource("2_j0x3x")

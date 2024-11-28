@@ -180,15 +180,22 @@ func _pre_trash_talk():
 	if global.player_1_character == 2:
 		pass
 	await get_tree().create_timer(5).timeout
-	if global.player_2_character == 1:
+	if global.player_2_character == 1 and global.player_1_character > 1:
 		hon_start.play()
+	if global.player_2_character == 1 and global.player_1_character == 1:
+		pass
 	if global.player_2_character == 2:
 		pass
 	await get_tree().create_timer(7).timeout
 	_start()
 func _start():
 	fight_countdown.play()
-	
+	await get_tree().create_timer(0.8).timeout
+	fight_counter -=1
+	await get_tree().create_timer(0.8).timeout
+	fight_counter -=1
+	await get_tree().create_timer(0.8).timeout
+	fight_counter -=1
 	if fight_counter == 0:
 		player1.is_attacking = false
 		player2.is_attacking = false

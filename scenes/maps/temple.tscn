@@ -197,3 +197,11 @@ stream = ExtResource("19_jxdlh")
 
 [node name="ko" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_g2avs")
+
+[node name="hon_alternate_start" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 138.0
+offset_right = 395.0
+offset_bottom = 214.0
