@@ -50,7 +50,12 @@ var fight_counter = 3
 #Reference the pause menu scene
 @onready var pause_menu = $CanvasLayer/resizer/pause_menu
 
+#Reference song
+@onready var theme = $"fight theme"
+
 func _ready():
+	AudioPlayer.stop()
+	theme.play()
 	#Start the timer
 	timer.start()
 	
