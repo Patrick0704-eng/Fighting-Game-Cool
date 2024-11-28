@@ -77,6 +77,9 @@ var ball_punch = false
 #Reference the hon character body
 @onready var zhin_body = $"."
 
+#Reference the fireball scene for instantiation
+@onready var fireball = preload("res://scenes/characters/fireball.tscn")
+
 #reference the hit sounds
 @onready var punch_1 = $punch_1
 @onready var high_punch = $high_punch
@@ -173,10 +176,16 @@ func _physics_process(delta):
 		is_attacking = true
 		animation_player.play("stand_low")
 		punch_1.play()
-		await get_tree().create_timer(0.2).timeout
-		if attack_range_body != null:
-			attack_range_body._hit(6, 0.7, Vector2(30*is_flipped, -350))
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(1.0).timeout
+		#Shoot the fireball
+		var new_fireball = fireball.instantiate()
+		get_tree().current_scene.add_child(new_fireball)
+		new_fireball.global_position = Vector2(attack_range.global_position.x, attack_range.global_position.y - 10)
+		new_fireball.fireball_direction = is_flipped
+		if player == 2:
+			new_fireball.collision_layer = (1 << 0) | (1 << 2)
+			new_fireball.collision_mask = (1 << 0) | (1 << 2)
+		await get_tree().create_timer(0.8).timeout
 		last_attack = "stand_low"
 		is_attacking = false
 	#Check if player is trying to crouching high and if they can, then executes the move
