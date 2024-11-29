@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6qijsdg26ptl"]
+[gd_scene load_steps=9 format=3 uid="uid://c6qijsdg26ptl"]
 
 [ext_resource type="Script" path="res://scripts/gui/map_select.gd" id="1_svwhm"]
 [ext_resource type="Texture2D" uid="uid://bf8gfnf76oi4h" path="res://assets/gui/character_select_menu/p1_select.png" id="2_i6jxl"]
+[ext_resource type="Texture2D" uid="uid://d0eepta8amkpy" path="res://assets/gui/main_menu/background_art/background.png" id="2_w4702"]
 [ext_resource type="Texture2D" uid="uid://d3uromcspbgrn" path="res://assets/characters/p2_select.png" id="3_ubtyn"]
 [ext_resource type="Texture2D" uid="uid://44hymgx6hrns" path="res://assets/gui/character_select_menu/dual_select.png" id="4_5a2xa"]
 [ext_resource type="Texture2D" uid="uid://dg3d6dvf1vh7x" path="res://assets/maps/temple/source_image.jpg" id="5_kffrt"]
-[ext_resource type="Texture2D" uid="uid://0vq1c4ncdk1q" path="res://assets/characters/hon/normal/reference.png" id="6_122tv"]
 [ext_resource type="Texture2D" uid="uid://5dbu8md70r15" path="res://assets/gui/map_select_menu/random.png" id="7_lvfms"]
+[ext_resource type="Texture2D" uid="uid://behli7a1ea4kp" path="res://assets/gui/OIP.jpg" id="7_ybacf"]
 
 [node name="map_select" type="Control"]
 layout_mode = 3
@@ -16,6 +17,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_svwhm")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -297.0
+offset_top = -348.0
+offset_right = -297.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.07251, 1.05236)
+texture = ExtResource("2_w4702")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="cursor_1" type="Sprite2D" parent="."]
 z_index = 1
@@ -43,8 +60,30 @@ texture = ExtResource("5_kffrt")
 
 [node name="map_2" type="Sprite2D" parent="."]
 position = Vector2(164, 32)
-texture = ExtResource("6_122tv")
+scale = Vector2(0.122172, 0.256667)
+texture = ExtResource("7_ybacf")
 
 [node name="random" type="Sprite2D" parent="."]
 position = Vector2(228, 32)
 texture = ExtResource("7_lvfms")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 71.0
+offset_right = 265.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Player 1: Spacebar To Lock
+Player 2: Enter To Lock"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 117.0
+offset_top = -28.0
+offset_right = 322.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "PICK A MAP"
