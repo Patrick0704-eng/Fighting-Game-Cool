@@ -220,3 +220,5 @@ stream = ExtResource("21_s2yao")
 [node name="player_1_dub" type="Sprite2D" parent="."]
 
 [node name="player_2_dub" type="Sprite2D" parent="."]
+
+[node name="zhin_start" type="AudioStreamPlayer2D" parent="."]

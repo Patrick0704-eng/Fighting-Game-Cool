@@ -239,26 +239,7 @@ func _pre_trash_talk():
 	if global.player_1_character == 2:
 		pass
 	await get_tree().create_timer(7).timeout
-	camera.position.x += 5
-	await get_tree().create_timer(0.)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
-	camera.position.x += 5
-	await get_tree().create_timer(0.2)
+	camera.position = Vector2(324,200)
 	if global.player_2_character == 1 and global.player_1_character > 1:
 		hon_start.play()
 	if global.player_2_character == 1 and global.player_1_character == 1:
