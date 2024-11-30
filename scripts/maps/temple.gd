@@ -25,6 +25,9 @@ var game_started = false
 @onready var hon_start = $hon_start
 @onready var hon_win = $hon_win
 @onready var hon_loss = $hon_loss
+@onready var zhin_win = $zhin_win
+@onready var zhin_loss = $zhin_loss
+@onready var zhin_start = $zhin_start
 
 #Preload hon to be instantiated
 @onready var scene_hon = preload("res://scenes/characters/hon.tscn")
@@ -195,12 +198,12 @@ func _process(delta):
 		if global.player_1_character == 1:
 			hon_win.play()
 		if global.player_1_character == 2:
-			pass
+			zhin_win.play()
 		await get_tree().create_timer(7).timeout
 		if global.player_2_character == 1:
 			hon_loss.play()
 		if global.player_2_character ==2:
-			pass
+			zhin_loss.play()
 		await get_tree().create_timer(7).timeout
 		get_tree().change_scene_to_file("res://scenes/gui/main_menu.tscn")
 	if global.player_2_wins == 2:
@@ -210,12 +213,12 @@ func _process(delta):
 		if global.player_2_character == 1:
 			hon_win.play()
 		if global.player_2_character == 2:
-			pass
+			zhin_win.play()
 		await get_tree().create_timer(7).timeout
 		if global.player_1_character == 1:
 			hon_loss.play()
 		if global.player_1_character == 2:
-			pass
+			zhin_loss.play()
 		await get_tree().create_timer(7).timeout
 		get_tree().change_scene_to_file("res://scenes/gui/main_menu.tscn")
 		
@@ -237,14 +240,16 @@ func _pre_trash_talk():
 	if global.player_1_character == 1:
 		hon_start.play()
 	if global.player_1_character == 2:
-		pass
+		zhin_start.play()
 	await get_tree().create_timer(7).timeout
 	camera.position = Vector2(324,200)
 	if global.player_2_character == 1 and global.player_1_character > 1:
 		hon_start.play()
 	if global.player_2_character == 1 and global.player_1_character == 1:
 		pass
-	if global.player_2_character == 2:
+	if global.player_2_character == 2 and global.player_1_character ==1:
+		zhin_start.play()
+	if global.player_2_character == 2 and global.player_1_character ==2:
 		pass
 	await get_tree().create_timer(7).timeout
 	_start()

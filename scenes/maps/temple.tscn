@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfe4480dgbxh8"]
+[gd_scene load_steps=29 format=3 uid="uid://cfe4480dgbxh8"]
 
 [ext_resource type="Script" path="res://scripts/maps/temple.gd" id="1_7fuft"]
 [ext_resource type="Texture2D" uid="uid://jp7lo5a1mno4" path="res://assets/maps/temple/background.png" id="2_t4y05"]
@@ -21,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://c3157ga5blj4g" path="res://assets/voicelines/Hon_start.mp3" id="19_jxdlh"]
 [ext_resource type="AudioStream" uid="uid://bubxry0gttk5d" path="res://assets/voicelines/Jo.mp3" id="20_g2avs"]
 [ext_resource type="AudioStream" uid="uid://cvuwsbblsr2ln" path="res://assets/voicelines/Street Fighter II Ken Theme Original.mp3" id="21_s2yao"]
+[ext_resource type="AudioStream" uid="uid://cj453ofxo1mvo" path="res://assets/voicelines/you mean nothing-[AudioTrimmer.com].mp3" id="22_5frcf"]
+[ext_resource type="AudioStream" uid="uid://cibqn8xoh2802" path="res://assets/voicelines/Recording (1).mp3" id="23_dtw27"]
+[ext_resource type="AudioStream" uid="uid://x8kaw7hrl424" path="res://assets/voicelines/zhin loss-[AudioTrimmer.com].mp3" id="24_nwasm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eu8xy"]
 
@@ -190,9 +193,11 @@ stream = ExtResource("16_65hgg")
 
 [node name="hon_loss" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_q1byh")
+volume_db = 8.914
 
 [node name="hon_win" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_5nq5s")
+volume_db = 9.905
 
 [node name="hon_start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_jxdlh")
@@ -216,9 +221,20 @@ theme_override_font_sizes/font_size = 5
 
 [node name="fight theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_s2yao")
+volume_db = -10.896
 
 [node name="player_1_dub" type="Sprite2D" parent="."]
 
 [node name="player_2_dub" type="Sprite2D" parent="."]
 
 [node name="zhin_start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_5frcf")
+volume_db = 14.857
+
+[node name="zhin_win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_dtw27")
+volume_db = 10.894
+
+[node name="zhin_loss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_nwasm")
+volume_db = 10.895

@@ -51,7 +51,7 @@ texture_normal = ExtResource("4_qvjnq")
 layout_mode = 2
 texture_normal = ExtResource("4_w5alm")
 
-[node name="credits" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+[node name="credits" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]

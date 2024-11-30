@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj453ofxo1mvo"
+path="res://.godot/imported/you mean nothing-[AudioTrimmer.com].mp3-4a7c76b3475b3b602f1da93e21016a95.mp3str"
+
+[deps]
+
+source_file="res://assets/voicelines/you mean nothing-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/you mean nothing-[AudioTrimmer.com].mp3-4a7c76b3475b3b602f1da93e21016a95.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

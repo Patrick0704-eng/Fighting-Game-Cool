@@ -68,6 +68,7 @@ position = Vector2(228, 32)
 texture = ExtResource("7_lvfms")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 71.0
 offset_right = 265.0
@@ -79,6 +80,7 @@ text = "Player 1: Spacebar To Lock
 Player 2: Enter To Lock"
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 117.0
 offset_top = -28.0
 offset_right = 322.0
