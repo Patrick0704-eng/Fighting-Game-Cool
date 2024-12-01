@@ -1,9 +1,12 @@
 extends Control
-
+@onready var credits_player = $credits
+var video_stream : VideoStream
 
 func _ready():
 	AudioPlayer._play_music_level()
-
+	video_stream = preload("res://assets/voicelines/Credits.ogv")
+	credits_player.stream = video_stream
+	credits_player.play()
 
 func _process(_delta):
 	#Switch to character select if space or enter pressed

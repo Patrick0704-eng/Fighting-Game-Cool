@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://41kfs8xj4fu2"]
+[gd_scene load_steps=7 format=3 uid="uid://41kfs8xj4fu2"]
 
 [ext_resource type="Script" path="res://scripts/gui/main_menu.gd" id="1_2q5qk"]
 [ext_resource type="Texture2D" uid="uid://caajwwc2ooqid" path="res://assets/gui/main_menu/buttons/play.png" id="2_jwfth"]
 [ext_resource type="Texture2D" uid="uid://d0eepta8amkpy" path="res://assets/gui/main_menu/background_art/background.png" id="2_kfeq4"]
 [ext_resource type="Texture2D" uid="uid://rf8621lha2xl" path="res://assets/gui/main_menu/buttons/settings.png" id="4_qvjnq"]
 [ext_resource type="Texture2D" uid="uid://efxp273w88ts" path="res://assets/gui/main_menu/buttons/quit.png" id="4_w5alm"]
+[ext_resource type="VideoStream" path="res://assets/voicelines/Credits.ogv" id="6_k1vm2"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -54,6 +55,13 @@ texture_normal = ExtResource("4_w5alm")
 [node name="credits" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
+
+[node name="credits" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("6_k1vm2")
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
