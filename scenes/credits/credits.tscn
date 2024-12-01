@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxgvqjd1kt2ta"]
+[gd_scene load_steps=3 format=3 uid="uid://bxgvqjd1kt2ta"]
 
 [ext_resource type="Script" path="res://scripts/credits/credits.gd" id="1_40gkv"]
+[ext_resource type="VideoStream" path="res://assets/voicelines/Credits.ogv" id="2_koel4"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -13,5 +14,19 @@ script = ExtResource("1_40gkv")
 
 [node name="credits" type="VideoStreamPlayer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -536.0
+offset_bottom = -284.0
+stream = ExtResource("2_koel4")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -64.0
+offset_top = 255.0
+offset_right = 61.0
+offset_bottom = 278.0
+text = "Click \"K\" To Skip"
+
+[node name="Camera2D" type="Camera2D" parent="."]

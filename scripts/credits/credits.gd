@@ -1,12 +1,14 @@
 extends Control
-@onready var credits = $credits
+@onready var credits_player = $credits
+var video_stream : VideoStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	credits.play()
-	await get_tree().create_timer(5).timeout
-	
-
+	video_stream = preload("res://assets/voicelines/Credits.ogv")
+	credits_player.stream = video_stream
+	credits_player.play()
+	await get_tree().create_timer(20).timeout
+	$Label.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
