@@ -21,7 +21,6 @@ offset_bottom = -284.0
 stream = ExtResource("2_koel4")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -64.0
 offset_top = 255.0
