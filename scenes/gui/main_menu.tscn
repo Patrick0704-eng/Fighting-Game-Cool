@@ -61,7 +61,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("6_k1vm2")
-autoplay = true
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

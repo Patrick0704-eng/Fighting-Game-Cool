@@ -6,7 +6,6 @@ func _ready():
 	AudioPlayer._play_music_level()
 	video_stream = preload("res://assets/voicelines/Credits.ogv")
 	credits_player.stream = video_stream
-	credits_player.play()
 
 func _process(_delta):
 	#Switch to character select if space or enter pressed
@@ -30,4 +29,5 @@ func _on_quit_pressed():
 
 
 func _on_credits_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/credits/credits.tscn")
+	$credits.play()
+	#get_tree().change_scene_to_file("res://scenes/credits/credits.tscn")
